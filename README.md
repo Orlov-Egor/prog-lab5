@@ -2,4 +2,5 @@
 
 Вариант: 311322
 
-![Описание предметной области](https://github.com/slamach/prog-lab5/blob/master/doc/task.png?raw=true)
+![Задание варианта](https://github.com/slamach/prog-lab5/blob/master/doc/task.png?raw=true)
+![Продолжение задания варианта](https://github.com/slamach/prog-lab5/blob/master/doc/task2.png?raw=true)
