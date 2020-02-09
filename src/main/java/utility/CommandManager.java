@@ -3,7 +3,7 @@ package utility;
 import java.util.Scanner;
 
 public class CommandManager {
-    private final int commandHistoryAmount = 8;
+    // private final int commandHistoryAmount = 8;
 
     private CollectionManager collectionManager;
     // private String[] userCommands = new String[commandHistoryAmount];
