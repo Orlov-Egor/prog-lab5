@@ -4,6 +4,7 @@ import utility.CollectionManager;
 import utility.CommandManager;
 
 // TODO: Ограничение полей
+// TODO: Постараться отделить логгеры
 
 public class App {
     public static void main(String[] args) {

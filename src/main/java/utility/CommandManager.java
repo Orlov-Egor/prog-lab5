@@ -23,6 +23,9 @@ public class CommandManager {
                 System.out.println();
 
                 switch (userCommand) {
+                    case "help":
+                        collectionManager.help();
+                        break;
                     case "exit":
                         break;
                     default:
