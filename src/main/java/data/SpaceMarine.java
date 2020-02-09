@@ -2,7 +2,7 @@ package data;
 
 import java.time.LocalDate;
 
-import utility.IdHandler;
+import utility.IdManager;
 
 public class SpaceMarine implements Comparable<SpaceMarine> {
     private Long id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
@@ -26,7 +26,7 @@ public class SpaceMarine implements Comparable<SpaceMarine> {
         this.chapter = chapter;
 
         this.creationDate = LocalDate.now();
-        this.id = IdHandler.getNextId();
+        this.id = IdManager.getNextId();
     }
 
     public Long getId() {

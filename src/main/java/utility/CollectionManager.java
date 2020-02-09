@@ -4,10 +4,10 @@ import java.util.TreeSet;
 
 import data.*;
 
-public class CollectionKeeper {
+public class CollectionManager {
     private TreeSet<SpaceMarine> collection = new TreeSet<SpaceMarine>();
 
-    public CollectionKeeper() {
+    public CollectionManager() {
         load();
     }
 
@@ -20,4 +20,6 @@ public class CollectionKeeper {
         collection.add(new SpaceMarine("Test2", new Coordinates(36.0, 41.0F), 56.0, AstartesCategory.ASSAULT,
                        Weapon.BOLT_PISTOL, MeleeWeapon.POWER_FIST, new Chapter("TestChapter2", 398L)));
     }
+
+    
 }

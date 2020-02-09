@@ -7,6 +7,10 @@ application {
   mainClassName = 'run.App'
 }
 
+run {
+  standardInput = System.in
+}
+
 jar {
   manifest {
       attributes 'Main-Class': 'run.App'
