@@ -1,10 +1,10 @@
 package utility;
 
 public class CommandManager {
-    // private final int commandHistoryAmount = 8;
+    private final int COMMAND_HISTORY_SIZE = 8;
 
     private CollectionManager collectionManager;
-    // private String[] userCommands = new String[commandHistoryAmount];
+    private String[] commandHistory = new String[COMMAND_HISTORY_SIZE];
 
     public CommandManager(CollectionManager collectionManager) {
         this.collectionManager = collectionManager;
@@ -12,6 +12,13 @@ public class CommandManager {
 
     public void noSuchCommand(String command) {
         System.out.println("Команда '" + command + "' не найдена. Наберите 'help' для справки.");
+    }
+
+    public void addToHistory(String command) {
+        for (int i = COMMAND_HISTORY_SIZE-1; i>0; i--) {
+            commandHistory[i] = commandHistory[i-1];
+        }
+        commandHistory[0] = command;
     }
 
     public void help() {
@@ -39,5 +46,12 @@ public class CommandManager {
         System.out.println(" Количество элементов: " + collectionManager.getCollectionSize());
         System.out.println(" Дата последнего сохранения: " + collectionManager.getLastSaveTime());
         System.out.println(" Дата последней инициализации: " + collectionManager.getLastInitTime());
+    }
+
+    public void history() {
+        System.out.println("Последние использованные команды:");
+        for (int i=0; i<COMMAND_HISTORY_SIZE; i++) {
+            if (commandHistory[i] != null) System.out.println(" " + commandHistory[i]);
+        }
     }
 }

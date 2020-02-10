@@ -21,9 +21,15 @@ public class InteractiveController {
                 switch (userCommand) {
                     case "help":
                         commandManager.help();
+                        commandManager.addToHistory(userCommand);
                         break;
                     case "info":
                         commandManager.info();
+                        commandManager.addToHistory(userCommand);
+                        break;
+                    case "history":
+                        commandManager.history();
+                        commandManager.addToHistory(userCommand);
                         break;
                     case "exit":
                         break;
