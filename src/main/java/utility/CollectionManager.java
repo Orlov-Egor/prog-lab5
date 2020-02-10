@@ -6,10 +6,9 @@ import java.time.LocalDateTime;
 import data.*;
 
 public class CollectionManager {
-    private TreeSet<SpaceMarine> collection = new TreeSet<SpaceMarine>();
+    private TreeSet<SpaceMarine> collection  = new TreeSet<>(); 
     private LocalDateTime lastInitTime = null;
     private LocalDateTime lastSaveTime = null;
-
 
     public CollectionManager() {
         load();
