@@ -6,16 +6,16 @@ import java.time.LocalDateTime;
 import data.*;
 
 public class CollectionManager {
-    private TreeSet<SpaceMarine> collection  = new TreeSet<>(); 
-    private LocalDateTime lastInitTime = null;
-    private LocalDateTime lastSaveTime = null;
+    private TreeSet<SpaceMarine> collection; 
+    private LocalDateTime lastInitTime;
+    private LocalDateTime lastSaveTime;
 
     public CollectionManager() {
-        load();
-    }
+        lastInitTime = null;
+        lastSaveTime = null;
+        collection  = new TreeSet<>(); 
 
-    public int getSize() {
-        return collection.size();
+        load();
     }
 
     public String getCollectionType() {

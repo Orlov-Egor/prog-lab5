@@ -2,14 +2,17 @@ package run;
 
 import utility.CollectionManager;
 import utility.CommandManager;
+import utility.InteractiveController;
 
 // TODO: Ограничение полей
-// TODO: Постараться отделить логгеры
+// TODO: Добавить конструкторов utility-классам
 
 public class App {
     public static void main(String[] args) {
         CollectionManager collectionManager = new CollectionManager();
         CommandManager commandManager = new CommandManager(collectionManager);
-        commandManager.interactiveMode();
+        InteractiveController interactiveController = new InteractiveController(commandManager);
+
+        interactiveController.interactiveMode();
     }
 }

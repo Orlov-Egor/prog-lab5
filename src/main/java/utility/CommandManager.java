@@ -1,7 +1,5 @@
 package utility;
 
-import java.util.Scanner;
-
 public class CommandManager {
     // private final int commandHistoryAmount = 8;
 
@@ -12,29 +10,8 @@ public class CommandManager {
         this.collectionManager = collectionManager;
     }
 
-    public void interactiveMode() {
-        String userCommand = "";
-        
-        try (Scanner commandScanner = new Scanner(System.in)) {
-            while (!userCommand.equals("exit")) {
-                // TODO: Обработка ошибок
-                System.out.print("\n>>> ");
-                userCommand = commandScanner.nextLine().trim();
-
-                switch (userCommand) {
-                    case "help":
-                        help();
-                        break;
-                    case "info":
-                        info();
-                        break;
-                    case "exit":
-                        break;
-                    default:
-                        System.out.println("Команда '" + userCommand + "' не найдена. Наберите 'help' для справки.");
-                }
-            }
-        }
+    public void noSuchCommand(String command) {
+        System.out.println("Команда '" + command + "' не найдена. Наберите 'help' для справки.");
     }
 
     public void help() {
