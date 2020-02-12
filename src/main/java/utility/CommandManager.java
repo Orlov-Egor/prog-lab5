@@ -68,4 +68,9 @@ public class CommandManager {
             if (commandHistory[i] != null) System.out.println(" " + commandHistory[i]);
         }
     }
+
+    public void clear() {
+        collectionManager.clearCollection();
+        System.out.println("Коллекция очищена");
+    }
 }

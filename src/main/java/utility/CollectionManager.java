@@ -45,6 +45,10 @@ public class CollectionManager {
         return infoAll;
     }
 
+    public void clearCollection() {
+        collection.clear();
+    }
+
     public void save() {
         // TODO: Сохранение коллекции в файл
         lastSaveTime = LocalDateTime.now();
