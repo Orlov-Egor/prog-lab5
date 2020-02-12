@@ -1,6 +1,6 @@
 package data;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import utility.IdManager;
 
@@ -8,7 +8,7 @@ public class SpaceMarine implements Comparable<SpaceMarine> {
     private Long id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
-    private LocalDate creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
+    private LocalDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
     private double health; //Значение поля должно быть больше 0
     private AstartesCategory category; //Поле может быть null
     private Weapon weaponType; //Поле не может быть null
@@ -25,7 +25,7 @@ public class SpaceMarine implements Comparable<SpaceMarine> {
         this.meleeWeapon = meleeWeapon;
         this.chapter = chapter;
 
-        this.creationDate = LocalDate.now();
+        this.creationDate = LocalDateTime.now();
         this.id = IdManager.getNextId();
     }
 
@@ -41,7 +41,7 @@ public class SpaceMarine implements Comparable<SpaceMarine> {
         return coordinates;
     }
 
-    public LocalDate getCreationDate() {
+    public LocalDateTime getCreationDate() {
         return creationDate;
     }
 
@@ -70,5 +70,22 @@ public class SpaceMarine implements Comparable<SpaceMarine> {
         if (id > o.getId()) return 1;
         else if (id < o.getId()) return -1;
         else return 0;
+    }
+
+    @Override
+    public String toString() {
+        String info = "";
+
+        info += "Солдат №" + id;
+        info += " (добавлен " + creationDate.toLocalDate() + " " + creationDate.toLocalTime() + ")";
+        info += "\n Имя: " + name;
+        info += "\n Местоположение: " + coordinates;
+        info += "\n Здоровье: " + health;
+        info += "\n Категория: " + category;
+        info += "\n Дальнее оружие: " + weaponType;
+        info += "\n Ближнее оружие: " + meleeWeapon;
+        info += "\n Орден: " + chapter;
+
+        return info;
     }
 }

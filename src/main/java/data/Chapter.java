@@ -16,4 +16,9 @@ public class Chapter {
     public long getMarinesCount() {
         return marinesCount;
     }
+
+    @Override
+    public String toString() {
+        return name + " (" + marinesCount + " солдат)";
+    }
 }

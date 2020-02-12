@@ -33,6 +33,17 @@ public class CollectionManager {
     public int collectionSize() {
         return collection.size();
     }
+    
+    public String infoAll() {
+        String infoAll = "";
+
+        for (SpaceMarine marine : collection) {
+            infoAll += marine;
+            if (marine != collection.last()) infoAll += "\n\n";
+        }
+
+        return infoAll;
+    }
 
     public void save() {
         // TODO: Сохранение коллекции в файл

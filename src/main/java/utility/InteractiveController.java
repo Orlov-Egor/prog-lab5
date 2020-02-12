@@ -27,6 +27,10 @@ public class InteractiveController {
                         commandManager.info();
                         commandManager.addToHistory(userCommand);
                         break;
+                    case "show":
+                        commandManager.show();
+                        commandManager.addToHistory(userCommand);
+                        break;
                     case "history":
                         commandManager.history();
                         commandManager.addToHistory(userCommand);

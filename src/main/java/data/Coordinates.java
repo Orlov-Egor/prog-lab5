@@ -16,4 +16,9 @@ public class Coordinates {
     public Float getY() {
         return y;
     }
+
+    @Override
+    public String toString() {
+        return "X:" + x + " Y:" + y;
+    }
 }
