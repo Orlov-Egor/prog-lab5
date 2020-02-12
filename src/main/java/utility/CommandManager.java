@@ -73,4 +73,8 @@ public class CommandManager {
         collectionManager.clearCollection();
         System.out.println("Коллекция очищена");
     }
+
+    public void sum_of_healf() {
+        System.out.println("Суммарное здоровье всех солдат: " + collectionManager.collectionSumOfHealf());
+    }
 }

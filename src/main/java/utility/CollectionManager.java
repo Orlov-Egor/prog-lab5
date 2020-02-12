@@ -54,6 +54,14 @@ public class CollectionManager {
         lastSaveTime = LocalDateTime.now();
     }
 
+    public double collectionSumOfHealf() {
+        double somOfHealth = 0;
+        for (SpaceMarine marine : collection){
+            somOfHealth += marine.getHealth();
+        }
+        return somOfHealth;
+    }
+
     private void load() {
         // TODO: Загрузка коллекции из файла
         // Временно загружает в коллекцию 2 тестовых объекта

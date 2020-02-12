@@ -39,6 +39,10 @@ public class InteractiveController {
                         commandManager.clear();
                         commandManager.addToHistory(userCommand);
                         break;
+                    case "sum_of_healf":
+                        commandManager.sum_of_healf();
+                        commandManager.addToHistory(userCommand);
+                        break;
                     case "exit":
                         break;
                     default:
