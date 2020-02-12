@@ -18,22 +18,20 @@ public class CollectionManager {
         load();
     }
 
-    public String getCollectionType() {
+    public LocalDateTime getLastInitTime() {
+        return lastInitTime;
+    }
+
+    public LocalDateTime getLastSaveTime() {
+        return lastSaveTime;
+    }
+
+    public String collectionType() {
         return collection.getClass().getName();
     }
 
-    public int getCollectionSize() {
+    public int collectionSize() {
         return collection.size();
-    }
-
-    public String getLastInitTime() {
-        if (lastInitTime == null) return "в данной сессии инициализации еще не происходило";
-        return lastInitTime.toLocalDate().toString() + " " + lastInitTime.toLocalTime().toString();
-    }
-
-    public String getLastSaveTime() {
-        if (lastSaveTime == null) return "в данной сессии сохранения еще не происходило";
-        return lastSaveTime.toLocalDate().toString() + " " + lastSaveTime.toLocalTime().toString();
     }
 
     public void save() {
