@@ -47,9 +47,21 @@ public class CollectionManager {
         collection.add(marine);
     }
 
+    public void clearCollection() {
+        collection.clear();
+    }
+
     public void save() {
         // TODO: Сохранение коллекции в файл
         lastSaveTime = LocalDateTime.now();
+    }
+
+    public double getSumOfHealth() {
+        double sumOfHealth = 0;
+        for (SpaceMarine marine : collection) {
+            sumOfHealth += marine.getHealth();
+        }
+        return sumOfHealth;
     }
 
     private void load() {

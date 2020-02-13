@@ -280,4 +280,13 @@ public class CommandManager {
             if (commandHistory[i] != null) System.out.println(" " + commandHistory[i]);
         }
     }
+
+    public void clear() {
+        collectionManager.clearCollection();
+        System.out.println("Коллекция очищена!");
+    }
+
+    public void sum_of_health() {
+        System.out.println("Сумма здоровья всех солдат: " + collectionManager.getSumOfHealth());
+    }
 }

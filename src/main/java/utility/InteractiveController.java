@@ -42,6 +42,14 @@ public class InteractiveController {
                         commandManager.history();
                         commandManager.addToHistory(userCommand);
                         break;
+                    case "clear":
+                        commandManager.clear();
+                        commandManager.addToHistory(userCommand);
+                        break;
+                    case "sum_of_health":
+                        commandManager.sum_of_health();
+                        commandManager.addToHistory(userCommand);
+                        break;
                     case "exit":
                         break;
                     default:
