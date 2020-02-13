@@ -10,13 +10,16 @@ public class InteractiveController {
     }
 
     public void interactiveMode() {
-        try (Scanner commandScanner = new Scanner(System.in)) {
+        try (Scanner userScanner = new Scanner(System.in)) {
             String userCommand = "";
 
             while (!userCommand.equals("exit")) {
                 // TODO: Обработка ошибок
+                // TODO: Добавление в историю единожды
+                // TODO: Пулл с командами и информацией о них
+                // TODO: РЕАЛИЗОВАТЬ ПАТТЕРН COMMAND С ЛЕКЦИИ
                 System.out.print("\n>>> ");
-                userCommand = commandScanner.nextLine().trim();
+                userCommand = userScanner.nextLine().trim();
 
                 switch (userCommand) {
                     case "help":
@@ -29,6 +32,10 @@ public class InteractiveController {
                         break;
                     case "show":
                         commandManager.show();
+                        commandManager.addToHistory(userCommand);
+                        break;
+                    case "add":
+                        commandManager.add(userScanner);
                         commandManager.addToHistory(userCommand);
                         break;
                     case "history":
