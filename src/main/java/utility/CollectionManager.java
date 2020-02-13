@@ -33,6 +33,8 @@ public class CollectionManager {
     }
     
     public String infoAll() {
+        if (collectionSize() == 0) return "Коллекция пуста!";
+
         String infoAll = "";
 
         for (SpaceMarine marine : collection) {
