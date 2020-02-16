@@ -198,4 +198,27 @@ public class MarineAsker {
 
         return new Chapter(name, marinesCount);
     }
+
+    public boolean askQuestion(String question) {
+        String finalQuestion = question + " (+/-): ";
+        String answer;
+
+        while (true) {
+            try {
+                System.out.print(finalQuestion);
+                answer = userScanner.nextLine().trim();
+                if (!answer.equals("+") && !answer.equals("-")) throw new NotInDeclaredLimitsException();
+                break;
+            } catch (NoSuchElementException exception) {
+                System.out.println(" Ответ не распознан!");
+            } catch (NotInDeclaredLimitsException exception) {
+                System.out.println(" Ответ должен быть представлен знаками '+' или '-'!");
+            } catch (IllegalStateException exception) {
+                System.out.println(" Непредвиденная ошибка!");
+                System.exit(0);
+            }
+        }
+
+        return (answer.equals("+")) ? true : false;
+    }
 }

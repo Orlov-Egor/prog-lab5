@@ -20,7 +20,8 @@ public class App {
                 new ShowCommand(collectionManager),
                 new AddCommand(collectionManager, marineAsker),
                 new ClearCommand(collectionManager),
-                new SumOfHealthCommand(collectionManager)
+                new SumOfHealthCommand(collectionManager),
+                new UpdateCommand(collectionManager, marineAsker)
             );
             Console console = new Console(commandManager, userScanner);
 

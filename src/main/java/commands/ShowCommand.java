@@ -1,5 +1,6 @@
 package commands;
 
+import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
 
 public class ShowCommand extends AbstractCommand {
@@ -11,7 +12,12 @@ public class ShowCommand extends AbstractCommand {
     }
 
     @Override
-    public void execute() {
-        System.out.println(collectionManager);
+    public void execute(String argument) {
+        try {
+            if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
+            System.out.println(collectionManager);
+        } catch (WrongAmountOfElementsException exception) {
+            System.out.println(" Использование: '" + getName() + "'");
+        }
     }
 }

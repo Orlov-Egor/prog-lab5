@@ -34,17 +34,21 @@ public class CollectionManager {
         marinesCollection.add(marine);
     }
 
+    public void removeFromCollection(SpaceMarine marine) {
+        marinesCollection.remove(marine);
+    }
+
     public void clearCollection() {
         marinesCollection.clear();
     }
 
-    // public SpaceMarine getById(Long id) {
-    //     for (SpaceMarine marine : marinesCollection) {
-    //         if (marine.getId().equals(id)) return marine;
-    //     }
+    public SpaceMarine getById(Long id) {
+        for (SpaceMarine marine : marinesCollection) {
+            if (marine.getId().equals(id)) return marine;
+        }
 
-    //     return null;
-    // }
+        return null;
+    }
 
     public double getSumOfHealth() {
         double sumOfHealth = 0;

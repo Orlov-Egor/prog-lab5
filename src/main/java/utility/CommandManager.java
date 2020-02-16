@@ -13,49 +13,60 @@ public class CommandManager {
     private Command addCommand;
     private Command clearCommand;
     private Command sumOfHealthCommand;
+    private Command updateCommand;
 
     public CommandManager(Command infoCommand, Command showCommand, Command addCommand, Command clearCommand,
-                          Command sumOfHealthCommand) {
+                          Command sumOfHealthCommand, Command updateCommand) {
        this.infoCommand = infoCommand;
        this.showCommand = showCommand;
        this.addCommand = addCommand;
        this.clearCommand = clearCommand;
        this.sumOfHealthCommand = sumOfHealthCommand;
+       this.updateCommand = updateCommand;
 
        commands.add(infoCommand);
        commands.add(showCommand);
        commands.add(addCommand);
        commands.add(clearCommand);
        commands.add(sumOfHealthCommand);
+       commands.add(updateCommand);
     }
 
     public void noSuchCommand(String command) {
         System.out.println("Команда '" + command + "' не найдена. Наберите 'help' для справки.");
     }
     
-    public void help() {
+    public void help(String argument) {
+        if (!argument.isEmpty()) {
+            System.out.println(" Использование: 'help'");
+            return;
+        }
         for (Command command : commands) {
             System.out.printf("%-37s%-1s%n", " " + command.getName(), command.getDescription());
         }
     }
 
-    public void info() {
-        infoCommand.execute();
+    public void info(String argument) {
+        infoCommand.execute(argument);
     }
 
-    public void show() {
-        showCommand.execute();
+    public void show(String argument) {
+        showCommand.execute(argument);
     }
 
-    public void add() {
-        addCommand.execute();
+    public void add(String argument) {
+        addCommand.execute(argument);
     }
 
-    public void clear() {
-        clearCommand.execute();
+    public void update(String argument) {
+        updateCommand.execute(argument);
     }
 
-    public void sumOfHealth() {
-        sumOfHealthCommand.execute();
+    public void clear(String argument) {
+        clearCommand.execute(argument);
+    }
+
+    public void sumOfHealth(String argument) {
+        sumOfHealthCommand.execute(argument);
     }
 }

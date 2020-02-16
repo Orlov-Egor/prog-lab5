@@ -17,30 +17,35 @@ public class Console {
     public void interactiveMode() {
         String[] userCommand = {"", ""};
 
-        while (!userCommand[0].equals("exit")) {
+        while (!userCommand[0].equals("exit") || !userCommand[1].isEmpty()) {
             System.out.print("\n>>> ");
-            userCommand = userScanner.nextLine().trim().split(" ", 2);
+            userCommand = (userScanner.nextLine().trim() + " ").split(" ", 2);
+            userCommand[1] = userCommand[1].trim();
 
             switch (userCommand[0]) {
                 case "help":
-                    commandManager.help();
+                    commandManager.help(userCommand[1]);
                     break;
                 case "info":
-                    commandManager.info();
+                    commandManager.info(userCommand[1]);
                     break;
                 case "show":
-                    commandManager.show();
+                    commandManager.show(userCommand[1]);
                     break;
                 case "add":
-                    commandManager.add();
+                    commandManager.add(userCommand[1]);
+                    break;
+                case "update":
+                    commandManager.update(userCommand[1]);
                     break;
                 case "clear":
-                    commandManager.clear();
+                    commandManager.clear(userCommand[1]);
                     break;
                 case "sum_of_health":
-                    commandManager.sumOfHealth();
+                    commandManager.sumOfHealth(userCommand[1]);
                     break;
                 case "exit":
+                    if (!userCommand[1].isEmpty()) System.out.println(" Использование: 'exit'");
                     break;
                 default:
                     commandManager.noSuchCommand(userCommand[0]);

@@ -1,5 +1,7 @@
 package commands;
 
+import exceptions.CollectionIsEmptyException;
+import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
 
 public class SumOfHealthCommand extends AbstractCommand {
@@ -11,8 +13,15 @@ public class SumOfHealthCommand extends AbstractCommand {
     }
 
     @Override
-    public void execute() {
-        if (collectionManager.collectionSize() == 0) System.out.println("Коллекция пуста!");
-        else System.out.println("Сумма здоровья всех солдат: " + collectionManager.getSumOfHealth());
+    public void execute(String argument) {
+        try {
+            if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
+            if (collectionManager.collectionSize() == 0) throw new CollectionIsEmptyException();
+            else System.out.println("Сумма здоровья всех солдат: " + collectionManager.getSumOfHealth());
+        } catch (WrongAmountOfElementsException exception) {
+            System.out.println(" Использование: '" + getName() + "'");
+        } catch (CollectionIsEmptyException exception) {
+            System.out.println(" Коллекция пуста!");
+        }
     }
 }
