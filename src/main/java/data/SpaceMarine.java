@@ -2,8 +2,6 @@ package data;
 
 import java.time.LocalDateTime;
 
-import utility.IdManager;
-
 public class SpaceMarine implements Comparable<SpaceMarine> {
     private Long id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
@@ -15,18 +13,17 @@ public class SpaceMarine implements Comparable<SpaceMarine> {
     private MeleeWeapon meleeWeapon; //Поле не может быть null
     private Chapter chapter; //Поле может быть null
 
-    public SpaceMarine(String name, Coordinates coordinates, double health, AstartesCategory category, 
-                       Weapon weaponType, MeleeWeapon meleeWeapon, Chapter chapter) {
+    public SpaceMarine(Long id, String name, Coordinates coordinates, LocalDateTime creationDate, double health,
+                       AstartesCategory category, Weapon weaponType, MeleeWeapon meleeWeapon, Chapter chapter) {
+        this.id = id;
         this.name = name;
         this.coordinates = coordinates;
+        this.creationDate = creationDate;
         this.health = health;
         this.category = category;
         this.weaponType = weaponType;
         this.meleeWeapon = meleeWeapon;
         this.chapter = chapter;
-
-        this.creationDate = LocalDateTime.now();
-        this.id = IdManager.getNextId();
     }
 
     public Long getId() {
