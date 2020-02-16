@@ -11,25 +11,28 @@ public class CommandManager {
     private Command infoCommand;
     private Command showCommand;
     private Command addCommand;
+    private Command updateCommand;
+    private Command removeByIdCommand;
     private Command clearCommand;
     private Command sumOfHealthCommand;
-    private Command updateCommand;
 
-    public CommandManager(Command infoCommand, Command showCommand, Command addCommand, Command clearCommand,
-                          Command sumOfHealthCommand, Command updateCommand) {
+    public CommandManager(Command infoCommand, Command showCommand, Command addCommand, Command updateCommand,
+                          Command removeByIdCommand, Command clearCommand, Command sumOfHealthCommand) {
        this.infoCommand = infoCommand;
        this.showCommand = showCommand;
        this.addCommand = addCommand;
+       this.updateCommand = updateCommand;
+       this.removeByIdCommand = removeByIdCommand;
        this.clearCommand = clearCommand;
        this.sumOfHealthCommand = sumOfHealthCommand;
-       this.updateCommand = updateCommand;
 
        commands.add(infoCommand);
        commands.add(showCommand);
        commands.add(addCommand);
+       commands.add(updateCommand);
+       commands.add(removeByIdCommand);
        commands.add(clearCommand);
        commands.add(sumOfHealthCommand);
-       commands.add(updateCommand);
     }
 
     public void noSuchCommand(String command) {
@@ -60,6 +63,10 @@ public class CommandManager {
 
     public void update(String argument) {
         updateCommand.execute(argument);
+    }
+
+    public void removeById(String argument) {
+        removeByIdCommand.execute(argument);
     }
 
     public void clear(String argument) {

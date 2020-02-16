@@ -38,6 +38,9 @@ public class Console {
                 case "update":
                     commandManager.update(userCommand[1]);
                     break;
+                case "remove_by_id":
+                    commandManager.removeById(userCommand[1]);
+                    break;
                 case "clear":
                     commandManager.clear(userCommand[1]);
                     break;
