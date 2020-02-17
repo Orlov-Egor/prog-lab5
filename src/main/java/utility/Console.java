@@ -47,12 +47,17 @@ public class Console {
                 case "sum_of_health":
                     commandManager.sumOfHealth(userCommand[1]);
                     break;
+                case "history":
+                    commandManager.history();
+                    break;
                 case "exit":
                     if (!userCommand[1].isEmpty()) System.out.println(" Использование: 'exit'");
                     break;
                 default:
                     commandManager.noSuchCommand(userCommand[0]);
             }
+            
+            commandManager.addToHistory(userCommand[0]);
         }
     }
 }

@@ -6,6 +6,9 @@ import java.util.List;
 import commands.Command;
 
 public class CommandManager {
+    private final int COMMAND_HISTORY_SIZE = 8;
+
+    private String[] commandHistory = new String[COMMAND_HISTORY_SIZE];
     private List<Command> commands = new ArrayList<>();
 
     private Command infoCommand;
@@ -35,6 +38,22 @@ public class CommandManager {
        commands.add(sumOfHealthCommand);
     }
 
+    public void addToHistory(String commandToStore) {
+        boolean marker = false;
+
+        for (Command command : commands) {
+            if (command.getName().equals(commandToStore)) marker = true;
+        }
+        if (commandToStore.equals("help") || commandToStore.equals("history")) marker = true;
+
+        if (marker) {
+            for (int i = COMMAND_HISTORY_SIZE-1; i>0; i--) {
+                commandHistory[i] = commandHistory[i-1];
+            }
+            commandHistory[0] = commandToStore;
+        }
+    }
+
     public void noSuchCommand(String command) {
         System.out.println("Команда '" + command + "' не найдена. Наберите 'help' для справки.");
     }
@@ -47,6 +66,20 @@ public class CommandManager {
         for (Command command : commands) {
             System.out.printf("%-37s%-1s%n", " " + command.getName(), command.getDescription());
         }
+    }
+
+    public void history() {
+        boolean marker = false;
+
+        System.out.println("Последние использованные команды:");
+        for (int i=0; i<COMMAND_HISTORY_SIZE; i++) {
+            if (commandHistory[i] != null) {
+                System.out.println(" " + commandHistory[i]);
+                marker = true;
+            }
+        }
+
+        if (!marker) System.out.println("*пусто*");
     }
 
     public void info(String argument) {
