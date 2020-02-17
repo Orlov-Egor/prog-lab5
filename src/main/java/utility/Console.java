@@ -49,6 +49,8 @@ public class Console {
                     break;
                 case "save":
                     commandManager.save(userCommand[1]);
+                case "history":
+                    commandManager.history();
                     break;
                 case "exit":
                     if (!userCommand[1].isEmpty()) System.out.println(" Использование: 'exit'");
@@ -56,6 +58,8 @@ public class Console {
                 default:
                     commandManager.noSuchCommand(userCommand[0]);
             }
+            
+            commandManager.addToHistory(userCommand[0]);
         }
     }
 }
