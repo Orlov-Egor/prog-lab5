@@ -66,6 +66,7 @@ public class CommandManager {
             System.out.println(" Использование: 'help'");
             return;
         }
+        System.out.printf("%-37s%-1s%n", " history", "вывести историю использованных команд");
         for (Command command : commands) {
             System.out.printf("%-37s%-1s%n", " " + command.getName(), command.getDescription());
         }
@@ -82,7 +83,7 @@ public class CommandManager {
             }
         }
 
-        if (!marker) System.out.println("*пусто*");
+        if (!marker) System.out.println(" *пусто*");
     }
 
     public void info(String argument) {
