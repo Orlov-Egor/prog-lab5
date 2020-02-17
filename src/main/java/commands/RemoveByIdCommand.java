@@ -31,11 +31,11 @@ public class RemoveByIdCommand extends AbstractCommand {
         } catch (WrongAmountOfElementsException exception) {
             System.out.println(" Использование: '" + getName() + "'");
         } catch (CollectionIsEmptyException exception) {
-            System.out.println(" Коллекция пуста!");
+            System.out.println("Коллекция пуста!");
         } catch (NumberFormatException exception) {
-            System.out.println(" ID должен быть представлен числом!");
+            System.out.println("ID должен быть представлен числом!");
         } catch (MarineNotFoundException exception) {
-            System.out.println(" Бойца с таким ID в коллекции нет!");
+            System.out.println("Бойца с таким ID в коллекции нет!");
         }
     }
 }

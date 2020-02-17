@@ -1,17 +1,27 @@
 package utility;
 
-import java.util.TreeSet;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.TreeSet;
 
-import data.*;
+import data.AstartesCategory;
+import data.Chapter;
+import data.Coordinates;
+import data.MeleeWeapon;
+import data.SpaceMarine;
+import data.Weapon;
 
 public class CollectionManager {
-    private TreeSet<SpaceMarine> marinesCollection =  new TreeSet<>(); 
+    private TreeSet<SpaceMarine> marinesCollection =  new TreeSet<>();
     private LocalDateTime lastInitTime = null;
     private LocalDateTime lastSaveTime = null;
 
-    public CollectionManager() {
-        load();
+    private FileManager fileManager;
+
+    public CollectionManager(FileManager fileManager) {
+        this.fileManager = fileManager;
+        loadCollection();
     }
 
     public LocalDateTime getLastInitTime() {
@@ -63,13 +73,12 @@ public class CollectionManager {
         return marinesCollection.last().getId() + 1;
     }
 
-    public void save() {
-        // TODO: Сохранение коллекции в файл
-        lastSaveTime = LocalDateTime.now();
+    public void saveCollection() throws IOException {
+            fileManager.writeCollection(marinesCollection);
+            lastSaveTime = LocalDateTime.now();
     }
 
-    private void load() {
-        // TODO: Загрузка коллекции из файла
+    private void loadCollection() {
         marinesCollection.add(new SpaceMarine(generateNextId(), "Test1", new Coordinates(2.0, 3.0F), LocalDateTime.now(), 100.0, AstartesCategory.DREADNOUGHT,
                        Weapon.GRAV_GUN, MeleeWeapon.POWER_BLADE, new Chapter("TestChapter1", 243L)));
         
