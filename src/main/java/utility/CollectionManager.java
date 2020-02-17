@@ -4,9 +4,13 @@ import java.util.TreeSet;
 import java.time.LocalDateTime;
 
 import data.*;
+import com.google.gson.*;
+import java.io.*;
 
 public class CollectionManager {
     private TreeSet<SpaceMarine> marinesCollection =  new TreeSet<>(); 
+    private Gson json = new Gson(); 
+    private File file = new File("marinesCollection.json");
     private LocalDateTime lastInitTime = null;
     private LocalDateTime lastSaveTime = null;
 
@@ -63,9 +67,20 @@ public class CollectionManager {
         return marinesCollection.last().getId() + 1;
     }
 
-    public void save() {
+    public void saveCollection() {
         // TODO: Сохранение коллекции в файл
-        lastSaveTime = LocalDateTime.now();
+        try{
+            if (!file.exists())
+                file.createNewFile();
+            PrintWriter printWriter = new PrintWriter(file);
+            printWriter.println(json.toJson(marinesCollection));
+            printWriter.close();
+            lastSaveTime = LocalDateTime.now();
+        }catch(IOException e){
+            System.out.println("Eror" + e);
+        }
+
+        //lastSaveTime = LocalDateTime.now();
     }
 
     private void load() {

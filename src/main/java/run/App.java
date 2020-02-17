@@ -22,7 +22,8 @@ public class App {
                 new UpdateCommand(collectionManager, marineAsker),
                 new RemoveByIdCommand(collectionManager),
                 new ClearCommand(collectionManager),
-                new SumOfHealthCommand(collectionManager)
+                new SumOfHealthCommand(collectionManager),
+                new SaveCommand(collectionManager)
             );
             Console console = new Console(commandManager, userScanner);
 

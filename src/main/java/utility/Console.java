@@ -47,6 +47,9 @@ public class Console {
                 case "sum_of_health":
                     commandManager.sumOfHealth(userCommand[1]);
                     break;
+                case "save":
+                    commandManager.save(userCommand[1]);
+                    break;
                 case "exit":
                     if (!userCommand[1].isEmpty()) System.out.println(" Использование: 'exit'");
                     break;

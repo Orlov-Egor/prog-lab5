@@ -15,9 +15,10 @@ public class CommandManager {
     private Command removeByIdCommand;
     private Command clearCommand;
     private Command sumOfHealthCommand;
+    private Command saveCommand;
 
     public CommandManager(Command infoCommand, Command showCommand, Command addCommand, Command updateCommand,
-                          Command removeByIdCommand, Command clearCommand, Command sumOfHealthCommand) {
+                          Command removeByIdCommand, Command clearCommand, Command sumOfHealthCommand, Command saveCommand) {
        this.infoCommand = infoCommand;
        this.showCommand = showCommand;
        this.addCommand = addCommand;
@@ -25,6 +26,7 @@ public class CommandManager {
        this.removeByIdCommand = removeByIdCommand;
        this.clearCommand = clearCommand;
        this.sumOfHealthCommand = sumOfHealthCommand;
+       this.saveCommand = saveCommand;
 
        commands.add(infoCommand);
        commands.add(showCommand);
@@ -33,6 +35,7 @@ public class CommandManager {
        commands.add(removeByIdCommand);
        commands.add(clearCommand);
        commands.add(sumOfHealthCommand);
+       commands.add(saveCommand);
     }
 
     public void noSuchCommand(String command) {
@@ -75,5 +78,9 @@ public class CommandManager {
 
     public void sumOfHealth(String argument) {
         sumOfHealthCommand.execute(argument);
+    }
+
+    public void save(String argument) {
+        saveCommand.execute(argument);
     }
 }
