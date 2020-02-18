@@ -95,12 +95,12 @@ public class CollectionManager {
     }
 
     private void loadCollection() {
-        marinesCollection.add(new SpaceMarine(generateNextId(), "Test1", new Coordinates(2.0, 3.0F), LocalDateTime.now(), 100.0, AstartesCategory.DREADNOUGHT,
-                       Weapon.GRAV_GUN, MeleeWeapon.POWER_BLADE, new Chapter("TestChapter1", 243L)));
-        
-        marinesCollection.add(new SpaceMarine(generateNextId(), "Test2", new Coordinates(36.0, 41.0F), LocalDateTime.now(), 56.0, AstartesCategory.ASSAULT,
-                       Weapon.BOLT_PISTOL, MeleeWeapon.POWER_FIST, new Chapter("TestChapter2", 398L)));
-        
+        // marinesCollection.add(new SpaceMarine(generateNextId(), "Test1", new Coordinates(2.0, 3.0F), LocalDateTime.now(), 100.0, AstartesCategory.DREADNOUGHT,
+        //                Weapon.GRAV_GUN, MeleeWeapon.POWER_BLADE, new Chapter("TestChapter1", 243L)));
+        // marinesCollection.add(new SpaceMarine(generateNextId(), "Test2", new Coordinates(36.0, 41.0F), LocalDateTime.now(), 56.0, AstartesCategory.ASSAULT,
+        //                Weapon.BOLT_PISTOL, MeleeWeapon.POWER_FIST, new Chapter("TestChapter2", 398L)));
+        String tt = fileManager.readCollection();
+        System.out.println(tt);
         lastInitTime = LocalDateTime.now();
     }
 

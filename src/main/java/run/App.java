@@ -31,13 +31,10 @@ import utility.MarineAsker;
 
 public class App {
     public static void main(String[] args) {
-        try (Scanner userScanner = new Scanner(System.in);
-             Scanner collectionFileScanner = new Scanner("marinesCollection.json");
-             FileWriter collectionFileWriter = new FileWriter("marinesCollection.json")) {
+        try (Scanner userScanner = new Scanner(System.in)) {
             
-            Gson gson = new Gson();
             MarineAsker marineAsker = new MarineAsker(userScanner);
-            FileManager fileManager = new FileManager(collectionFileWriter, collectionFileScanner, gson);
+            FileManager fileManager = new FileManager();
             CollectionManager collectionManager = new CollectionManager(fileManager);
 
             CommandManager commandManager = new CommandManager(
@@ -55,9 +52,6 @@ public class App {
             Console console = new Console(commandManager, userScanner);
 
             console.interactiveMode();
-        } catch (IOException exception) {
-            System.out.println(" Ошибка чтения файла с коллекцией!");
-            System.exit(0);
         }
     }
 }

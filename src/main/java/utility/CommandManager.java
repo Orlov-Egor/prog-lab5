@@ -128,7 +128,6 @@ public class CommandManager {
     public void removeGreater(String argument) {
         removeGreaterCommand.execute(argument);
     }
-
     public void sumOfHealth(String argument) {
         sumOfHealthCommand.execute(argument);
     }
