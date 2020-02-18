@@ -10,13 +10,13 @@ import com.google.gson.Gson;
 
 public class FileManager {
     private FileWriter collectionFileWriter;
-    private Scanner collectionFilScanner;
+    private Scanner collectionFileScanner;
     private Gson gson;
 
     public FileManager(FileWriter collectionFileWriter, Scanner collectionFileScanner, Gson gson)
     {
         this.collectionFileWriter = collectionFileWriter;
-        this.collectionFilScanner = collectionFileScanner;
+        this.collectionFileScanner = collectionFileScanner;
         this.gson = gson;
     }
 

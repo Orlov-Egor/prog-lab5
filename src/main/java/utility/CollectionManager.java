@@ -47,8 +47,13 @@ public class CollectionManager {
         marinesCollection.remove(marine);
     }
 
+
     public void clearCollection() {
         marinesCollection.clear();
+    }
+
+    public void removeGreater(SpaceMarine marineToCompare) {
+        marinesCollection.removeIf(marine -> marine.compareTo(marineToCompare) > 0);
     }
 
     public SpaceMarine getFirst() {
@@ -58,6 +63,14 @@ public class CollectionManager {
     public SpaceMarine getById(Long id) {
         for (SpaceMarine marine : marinesCollection) {
             if (marine.getId().equals(id)) return marine;
+        }
+
+        return null;
+    }
+
+    public SpaceMarine getByValue(SpaceMarine marineToFind) {
+        for (SpaceMarine marine : marinesCollection) {
+            if (marine.equals(marineToFind)) return marine;
         }
 
         return null;

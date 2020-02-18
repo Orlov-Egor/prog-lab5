@@ -47,6 +47,9 @@ public class Console {
                 case "add_if_min":
                     commandManager.addIfMin(userCommand[1]);
                     break;
+                case "remove_greater":
+                    commandManager.removeGreater(userCommand[1]);
+                    break;
                 case "history":
                     commandManager.history();
                     break;

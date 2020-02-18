@@ -12,6 +12,7 @@ import commands.AddIfMinCommand;
 import commands.ClearCommand;
 import commands.InfoCommand;
 import commands.RemoveByIdCommand;
+import commands.RemoveGreaterCommand;
 import commands.SaveCommand;
 import commands.ShowCommand;
 import commands.SumOfHealthCommand;
@@ -25,6 +26,8 @@ import utility.MarineAsker;
 // TODO: Добавить конструкторов utility-классам
 // TODO: Переделать обработку ошибки открытия файла на запись
 // TODO: Имя файла через переменную окружения
+// TODO: RemoveGreater - повторы
+// TODO: Заменить возвращаемые объекты на клоны
 
 public class App {
     public static void main(String[] args) {
@@ -46,6 +49,7 @@ public class App {
                 new ClearCommand(collectionManager),
                 new SaveCommand(collectionManager),
                 new AddIfMinCommand(collectionManager, marineAsker),
+                new RemoveGreaterCommand(collectionManager, marineAsker),
                 new SumOfHealthCommand(collectionManager)
             );
             Console console = new Console(commandManager, userScanner);
