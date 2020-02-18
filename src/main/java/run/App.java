@@ -8,9 +8,11 @@ import java.util.Scanner;
 import com.google.gson.Gson;
 
 import commands.AddCommand;
+import commands.AddIfMinCommand;
 import commands.ClearCommand;
 import commands.InfoCommand;
 import commands.RemoveByIdCommand;
+import commands.RemoveGreaterCommand;
 import commands.SaveCommand;
 import commands.ShowCommand;
 import commands.SumOfHealthCommand;
@@ -24,28 +26,32 @@ import utility.MarineAsker;
 // TODO: Добавить конструкторов utility-классам
 // TODO: Переделать обработку ошибки открытия файла на запись
 // TODO: Имя файла через переменную окружения
+// TODO: RemoveGreater - повторы
+// TODO: Заменить возвращаемые объекты на клоны
 
 public class App {
     public static void main(String[] args) {
-        Scanner userScanner = new Scanner(System.in);
+        try (Scanner userScanner = new Scanner(System.in)) {
+            
+            MarineAsker marineAsker = new MarineAsker(userScanner);
+            FileManager fileManager = new FileManager();
+            CollectionManager collectionManager = new CollectionManager(fileManager);
 
-        Gson gson = new Gson();
-        MarineAsker marineAsker = new MarineAsker(userScanner);
-        FileManager fileManager = new FileManager(gson);
-        CollectionManager collectionManager = new CollectionManager(fileManager);
+            CommandManager commandManager = new CommandManager(
+                new InfoCommand(collectionManager),
+                new ShowCommand(collectionManager),
+                new AddCommand(collectionManager, marineAsker),
+                new UpdateCommand(collectionManager, marineAsker),
+                new RemoveByIdCommand(collectionManager),
+                new ClearCommand(collectionManager),
+                new SaveCommand(collectionManager),
+                new AddIfMinCommand(collectionManager, marineAsker),
+                new RemoveGreaterCommand(collectionManager, marineAsker),
+                new SumOfHealthCommand(collectionManager)
+            );
+            Console console = new Console(commandManager, userScanner);
 
-        CommandManager commandManager = new CommandManager(
-            new InfoCommand(collectionManager),
-            new ShowCommand(collectionManager),
-            new AddCommand(collectionManager, marineAsker),
-            new UpdateCommand(collectionManager, marineAsker),
-            new RemoveByIdCommand(collectionManager),
-            new ClearCommand(collectionManager),
-            new SaveCommand(collectionManager),
-            new SumOfHealthCommand(collectionManager)
-        );
-        Console console = new Console(commandManager, userScanner);
-
-         console.interactiveMode();
+            console.interactiveMode();
+        }
     }
 }

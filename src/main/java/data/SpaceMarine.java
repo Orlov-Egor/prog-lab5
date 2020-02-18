@@ -85,4 +85,17 @@ public class SpaceMarine implements Comparable<SpaceMarine> {
 
         return info;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj instanceof SpaceMarine) {
+            SpaceMarine marineObj = (SpaceMarine) obj;
+            return name.equals(marineObj.getName()) && coordinates.equals(marineObj.getCoordinates()) &&
+                   (health == marineObj.getHealth()) && (category == marineObj.getCategory()) &&
+                   (weaponType == marineObj.getWeaponType()) && (meleeWeapon == marineObj.getMeleeWeapon()) &&
+                   chapter.equals(marineObj.getChapter());
+        }
+        return false;
+    }
 }

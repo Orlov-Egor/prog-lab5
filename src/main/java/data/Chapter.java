@@ -21,4 +21,14 @@ public class Chapter {
     public String toString() {
         return name + " (" + marinesCount + " солдат)";
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj instanceof Chapter) {
+            Chapter chapterObj = (Chapter) obj;
+            return name.equals(chapterObj.getName()) && (marinesCount == chapterObj.getMarinesCount());
+        }
+        return false;
+    }
 }

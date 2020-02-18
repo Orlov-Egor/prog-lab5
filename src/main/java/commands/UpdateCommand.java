@@ -74,7 +74,7 @@ public class UpdateCommand extends AbstractCommand {
         } catch (NumberFormatException exception) {
             System.out.println("ID должен быть представлен числом!");
         } catch (MarineNotFoundException exception) {
-            System.out.println("Бойца с таким ID в коллекции нет!");
+            System.out.println("Солдата с таким ID в коллекции нет!");
         }
     }
 }

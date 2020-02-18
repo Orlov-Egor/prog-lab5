@@ -1,6 +1,5 @@
 package utility;
 
-import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.TreeSet;
@@ -48,13 +47,30 @@ public class CollectionManager {
         marinesCollection.remove(marine);
     }
 
+
     public void clearCollection() {
         marinesCollection.clear();
+    }
+
+    public void removeGreater(SpaceMarine marineToCompare) {
+        marinesCollection.removeIf(marine -> marine.compareTo(marineToCompare) > 0);
+    }
+
+    public SpaceMarine getFirst() {
+        return marinesCollection.first();
     }
 
     public SpaceMarine getById(Long id) {
         for (SpaceMarine marine : marinesCollection) {
             if (marine.getId().equals(id)) return marine;
+        }
+
+        return null;
+    }
+
+    public SpaceMarine getByValue(SpaceMarine marineToFind) {
+        for (SpaceMarine marine : marinesCollection) {
+            if (marine.equals(marineToFind)) return marine;
         }
 
         return null;
@@ -79,16 +95,13 @@ public class CollectionManager {
     }
 
     private void loadCollection() {
-        String tt = "";
         // marinesCollection.add(new SpaceMarine(generateNextId(), "Test1", new Coordinates(2.0, 3.0F), LocalDateTime.now(), 100.0, AstartesCategory.DREADNOUGHT,
         //                Weapon.GRAV_GUN, MeleeWeapon.POWER_BLADE, new Chapter("TestChapter1", 243L)));
-        
         // marinesCollection.add(new SpaceMarine(generateNextId(), "Test2", new Coordinates(36.0, 41.0F), LocalDateTime.now(), 56.0, AstartesCategory.ASSAULT,
         //                Weapon.BOLT_PISTOL, MeleeWeapon.POWER_FIST, new Chapter("TestChapter2", 398L)));
-        
-        // lastInitTime = LocalDateTime.now();
-        tt = fileManager.readCollection();
+        String tt = fileManager.readCollection();
         System.out.println(tt);
+        lastInitTime = LocalDateTime.now();
     }
 
     @Override

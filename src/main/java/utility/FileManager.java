@@ -10,21 +10,18 @@ import java.util.TreeSet;
 import com.google.gson.Gson;
 
 public class FileManager {
-    private Gson gson;
+    private Gson gson = new Gson();;
 
-    public FileManager(Gson gson)
+    public FileManager()
     {
-        this.gson = gson;
+        
     }
 
-    public void writeCollection(Collection<?> collection) {
-        try (FileWriter collectionFileWriter = new FileWriter(new File("marinesCollection.json"))){
-            collectionFileWriter.write(gson.toJson(collection));
-            collectionFileWriter.flush();
-        }catch (IOException exception) {
-            System.out.println(" Ошибка чтения файла с коллекцией!");
-            System.exit(0);
-        }
+    public void writeCollection(Collection<?> collection) throws IOException {
+        FileWriter collectionFileWriter = new FileWriter(new File("marinesCollection.json"));
+        collectionFileWriter.write(gson.toJson(collection));
+        collectionFileWriter.flush();
+        collectionFileWriter.close();
     }
 
     public String readCollection() {
