@@ -8,6 +8,7 @@ import java.util.Scanner;
 import com.google.gson.Gson;
 
 import commands.AddCommand;
+import commands.AddIfMinCommand;
 import commands.ClearCommand;
 import commands.InfoCommand;
 import commands.RemoveByIdCommand;
@@ -44,6 +45,7 @@ public class App {
                 new RemoveByIdCommand(collectionManager),
                 new ClearCommand(collectionManager),
                 new SaveCommand(collectionManager),
+                new AddIfMinCommand(collectionManager, marineAsker),
                 new SumOfHealthCommand(collectionManager)
             );
             Console console = new Console(commandManager, userScanner);

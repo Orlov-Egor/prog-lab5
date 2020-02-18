@@ -1,6 +1,5 @@
 package utility;
 
-import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.TreeSet;
@@ -50,6 +49,10 @@ public class CollectionManager {
 
     public void clearCollection() {
         marinesCollection.clear();
+    }
+
+    public SpaceMarine getFirst() {
+        return marinesCollection.first();
     }
 
     public SpaceMarine getById(Long id) {

@@ -44,11 +44,14 @@ public class Console {
                 case "save":
                     commandManager.save(userCommand[1]);
                     break;
-                case "sum_of_health":
-                    commandManager.sumOfHealth(userCommand[1]);
+                case "add_if_min":
+                    commandManager.addIfMin(userCommand[1]);
                     break;
                 case "history":
                     commandManager.history();
+                    break;
+                case "sum_of_health":
+                    commandManager.sumOfHealth(userCommand[1]);
                     break;
                 case "exit":
                     if (!userCommand[1].isEmpty()) System.out.println(" Использование: 'exit'");

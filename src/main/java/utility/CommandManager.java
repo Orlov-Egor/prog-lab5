@@ -18,10 +18,12 @@ public class CommandManager {
     private Command removeByIdCommand;
     private Command clearCommand;
     private Command saveCommand;
+    private Command addIfMinCommand;
     private Command sumOfHealthCommand;
 
     public CommandManager(Command infoCommand, Command showCommand, Command addCommand, Command updateCommand,
-                          Command removeByIdCommand, Command clearCommand, Command saveCommand, Command sumOfHealthCommand) {
+                          Command removeByIdCommand, Command clearCommand, Command saveCommand, Command addIfMinCommand,
+                          Command sumOfHealthCommand) {
        this.infoCommand = infoCommand;
        this.showCommand = showCommand;
        this.addCommand = addCommand;
@@ -29,6 +31,7 @@ public class CommandManager {
        this.removeByIdCommand = removeByIdCommand;
        this.clearCommand = clearCommand;
        this.saveCommand = saveCommand;
+       this.addIfMinCommand = addIfMinCommand;
        this.sumOfHealthCommand = sumOfHealthCommand;
 
        commands.add(infoCommand);
@@ -39,6 +42,7 @@ public class CommandManager {
        commands.add(clearCommand);
        commands.add(saveCommand);
        commands.add(sumOfHealthCommand);
+       commands.add(addIfMinCommand);
     }
 
     public void addToHistory(String commandToStore) {
@@ -112,6 +116,10 @@ public class CommandManager {
 
     public void save(String argument) {
         saveCommand.execute(argument);
+    }
+
+    public void addIfMin(String argument) {
+        addIfMinCommand.execute(argument);
     }
 
     public void sumOfHealth(String argument) {
