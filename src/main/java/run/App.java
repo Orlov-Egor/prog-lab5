@@ -22,15 +22,18 @@ import utility.FileManager;
 import utility.MarineAsker;
 
 // TODO: Добавить конструкторов utility-классам
+// TODO: Переделать обработку ошибки открытия файла на запись
+// TODO: Имя файла через переменную окружения
 
 public class App {
     public static void main(String[] args) {
         try (Scanner userScanner = new Scanner(System.in);
+             Scanner collectionFileScanner = new Scanner("marinesCollection.json");
              FileWriter collectionFileWriter = new FileWriter("marinesCollection.json")) {
             
             Gson gson = new Gson();
             MarineAsker marineAsker = new MarineAsker(userScanner);
-            FileManager fileManager = new FileManager(collectionFileWriter, gson);
+            FileManager fileManager = new FileManager(collectionFileWriter, collectionFileScanner, gson);
             CollectionManager collectionManager = new CollectionManager(fileManager);
 
             CommandManager commandManager = new CommandManager(
@@ -47,7 +50,7 @@ public class App {
 
             console.interactiveMode();
         } catch (IOException exception) {
-            System.out.println(" Не удается открыть/создать файл для сохранения коллекции!");
+            System.out.println(" Ошибка чтения файла с коллекцией!");
             System.exit(0);
         }
     }
