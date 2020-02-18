@@ -10,6 +10,7 @@ import com.google.gson.Gson;
 import commands.AddCommand;
 import commands.AddIfMinCommand;
 import commands.ClearCommand;
+import commands.FilterByWeaponTypeCommand;
 import commands.InfoCommand;
 import commands.RemoveByIdCommand;
 import commands.RemoveGreaterCommand;
@@ -24,10 +25,11 @@ import utility.FileManager;
 import utility.MarineAsker;
 
 // TODO: Добавить конструкторов utility-классам
-// TODO: Переделать обработку ошибки открытия файла на запись
+// TODO: Сделать нормальные ошибки для работы с файлами
 // TODO: Имя файла через переменную окружения
 // TODO: RemoveGreater - повторы
 // TODO: Заменить возвращаемые объекты на клоны
+// TODO: Вывод ENUM-констант универсально
 
 public class App {
     public static void main(String[] args) {
@@ -47,7 +49,8 @@ public class App {
                 new SaveCommand(collectionManager),
                 new AddIfMinCommand(collectionManager, marineAsker),
                 new RemoveGreaterCommand(collectionManager, marineAsker),
-                new SumOfHealthCommand(collectionManager)
+                new SumOfHealthCommand(collectionManager),
+                new FilterByWeaponTypeCommand(collectionManager)
             );
             Console console = new Console(commandManager, userScanner);
 

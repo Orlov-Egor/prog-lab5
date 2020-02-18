@@ -84,6 +84,22 @@ public class CollectionManager {
         return sumOfHealth;
     }
 
+    public String weaponFilteredInfo(Weapon weaponToFilter) {
+        if (collectionSize() == 0) return "Коллекция пуста!";
+
+        String info = "";
+        boolean marker = false;
+
+        for (SpaceMarine marine : marinesCollection) {
+            if (marine.getWeaponType().equals(weaponToFilter)) {
+                info += marine + "\n\n";
+                marker = true;
+            }
+        }
+
+        return (marker) ? info.substring(0, info.length()-2) : "В коллекции нет солдат с выбранным типом оружия!";
+    }
+
     public Long generateNextId() {
         if (marinesCollection.isEmpty()) return 1L;
         return marinesCollection.last().getId() + 1;
@@ -95,10 +111,10 @@ public class CollectionManager {
     }
 
     private void loadCollection() {
-        // marinesCollection.add(new SpaceMarine(generateNextId(), "Test1", new Coordinates(2.0, 3.0F), LocalDateTime.now(), 100.0, AstartesCategory.DREADNOUGHT,
-        //                Weapon.GRAV_GUN, MeleeWeapon.POWER_BLADE, new Chapter("TestChapter1", 243L)));
-        // marinesCollection.add(new SpaceMarine(generateNextId(), "Test2", new Coordinates(36.0, 41.0F), LocalDateTime.now(), 56.0, AstartesCategory.ASSAULT,
-        //                Weapon.BOLT_PISTOL, MeleeWeapon.POWER_FIST, new Chapter("TestChapter2", 398L)));
+        marinesCollection.add(new SpaceMarine(generateNextId(), "Test1", new Coordinates(2.0, 3.0F), LocalDateTime.now(), 100.0, AstartesCategory.DREADNOUGHT,
+                        Weapon.GRAV_GUN, MeleeWeapon.POWER_BLADE, new Chapter("TestChapter1", 243L)));
+        marinesCollection.add(new SpaceMarine(generateNextId(), "Test2", new Coordinates(36.0, 41.0F), LocalDateTime.now(), 56.0, AstartesCategory.ASSAULT,
+                        Weapon.BOLT_PISTOL, MeleeWeapon.POWER_FIST, new Chapter("TestChapter2", 398L)));
         String tt = fileManager.readCollection();
         System.out.println(tt);
         lastInitTime = LocalDateTime.now();
@@ -108,13 +124,13 @@ public class CollectionManager {
     public String toString() {
         if (collectionSize() == 0) return "Коллекция пуста!";
 
-        String infoAll = "";
+        String info = "";
 
         for (SpaceMarine marine : marinesCollection) {
-            infoAll += marine;
-            if (marine != marinesCollection.last()) infoAll += "\n\n";
+            info += marine;
+            if (marine != marinesCollection.last()) info += "\n\n";
         }
 
-        return infoAll;
+        return info;
     }
 }

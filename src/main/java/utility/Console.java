@@ -56,6 +56,9 @@ public class Console {
                 case "sum_of_health":
                     commandManager.sumOfHealth(userCommand[1]);
                     break;
+                case "filter_by_weapon_type":
+                    commandManager.filterByWeaponType(userCommand[1]);
+                    break;
                 case "exit":
                     if (!userCommand[1].isEmpty()) System.out.println(" Использование: 'exit'");
                     break;
