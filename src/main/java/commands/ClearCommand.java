@@ -15,8 +15,8 @@ public class ClearCommand extends AbstractCommand {
     public void execute(String argument) {
         try {
             if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
-        collectionManager.clearCollection();
-        System.out.println("Коллекция очищена!");
+            collectionManager.clearCollection();
+            System.out.println("Коллекция очищена!");
         } catch (WrongAmountOfElementsException exception) {
             System.out.println(" Использование: '" + getName() + "'");
         }

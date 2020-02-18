@@ -17,11 +17,11 @@ public class SumOfHealthCommand extends AbstractCommand {
         try {
             if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
             if (collectionManager.collectionSize() == 0) throw new CollectionIsEmptyException();
-            else System.out.println("Сумма здоровья всех солдат: " + collectionManager.getSumOfHealth());
+            System.out.println("Сумма здоровья всех солдат: " + collectionManager.getSumOfHealth());
         } catch (WrongAmountOfElementsException exception) {
             System.out.println(" Использование: '" + getName() + "'");
         } catch (CollectionIsEmptyException exception) {
-            System.out.println(" Коллекция пуста!");
+            System.out.println("Коллекция пуста!");
         }
     }
 }

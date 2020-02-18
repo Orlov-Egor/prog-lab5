@@ -2,9 +2,6 @@ package utility;
 
 import java.util.Scanner;
 
-// TODO: Добавление в историю
-// TODO: Аргументы функций + ошибки
-
 public class Console {
     private CommandManager commandManager;
     private Scanner userScanner;
@@ -44,11 +41,12 @@ public class Console {
                 case "clear":
                     commandManager.clear(userCommand[1]);
                     break;
+                case "save":
+                    commandManager.save(userCommand[1]);
+                    break;
                 case "sum_of_health":
                     commandManager.sumOfHealth(userCommand[1]);
                     break;
-                case "save":
-                    commandManager.save(userCommand[1]);
                 case "history":
                     commandManager.history();
                     break;
@@ -58,7 +56,7 @@ public class Console {
                 default:
                     commandManager.noSuchCommand(userCommand[0]);
             }
-            
+
             commandManager.addToHistory(userCommand[0]);
         }
     }

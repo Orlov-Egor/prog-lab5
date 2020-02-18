@@ -17,19 +17,19 @@ public class CommandManager {
     private Command updateCommand;
     private Command removeByIdCommand;
     private Command clearCommand;
-    private Command sumOfHealthCommand;
     private Command saveCommand;
+    private Command sumOfHealthCommand;
 
     public CommandManager(Command infoCommand, Command showCommand, Command addCommand, Command updateCommand,
-                          Command removeByIdCommand, Command clearCommand, Command sumOfHealthCommand, Command saveCommand) {
+                          Command removeByIdCommand, Command clearCommand, Command saveCommand, Command sumOfHealthCommand) {
        this.infoCommand = infoCommand;
        this.showCommand = showCommand;
        this.addCommand = addCommand;
        this.updateCommand = updateCommand;
        this.removeByIdCommand = removeByIdCommand;
        this.clearCommand = clearCommand;
-       this.sumOfHealthCommand = sumOfHealthCommand;
        this.saveCommand = saveCommand;
+       this.sumOfHealthCommand = sumOfHealthCommand;
 
        commands.add(infoCommand);
        commands.add(showCommand);
@@ -37,8 +37,8 @@ public class CommandManager {
        commands.add(updateCommand);
        commands.add(removeByIdCommand);
        commands.add(clearCommand);
-       commands.add(sumOfHealthCommand);
        commands.add(saveCommand);
+       commands.add(sumOfHealthCommand);
     }
 
     public void addToHistory(String commandToStore) {
@@ -66,6 +66,7 @@ public class CommandManager {
             System.out.println(" Использование: 'help'");
             return;
         }
+        System.out.printf("%-37s%-1s%n", " history", "вывести историю использованных команд");
         for (Command command : commands) {
             System.out.printf("%-37s%-1s%n", " " + command.getName(), command.getDescription());
         }
@@ -82,7 +83,7 @@ public class CommandManager {
             }
         }
 
-        if (!marker) System.out.println("*пусто*");
+        if (!marker) System.out.println(" *пусто*");
     }
 
     public void info(String argument) {
@@ -109,11 +110,11 @@ public class CommandManager {
         clearCommand.execute(argument);
     }
 
-    public void sumOfHealth(String argument) {
-        sumOfHealthCommand.execute(argument);
-    }
-
     public void save(String argument) {
         saveCommand.execute(argument);
+    }
+
+    public void sumOfHealth(String argument) {
+        sumOfHealthCommand.execute(argument);
     }
 }
