@@ -13,8 +13,8 @@ public class RemoveByIdCommand extends AbstractCommand {
         super("remove_by_id <ID>", "удалить элемент из коллекции по ID");
         this.collectionManager = collectionManager;
     }
-
-    @Override
+ 
+ @Override
     public void execute(String argument) {
         try {
             if (argument.isEmpty()) throw new WrongAmountOfElementsException();

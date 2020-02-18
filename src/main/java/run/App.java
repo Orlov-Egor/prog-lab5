@@ -5,8 +5,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-import com.google.gson.Gson;
-
 import commands.AddCommand;
 import commands.AddIfMinCommand;
 import commands.ClearCommand;
@@ -24,7 +22,6 @@ import utility.FileManager;
 import utility.MarineAsker;
 
 // TODO: Добавить конструкторов utility-классам
-// TODO: Переделать обработку ошибки открытия файла на запись
 // TODO: Имя файла через переменную окружения
 // TODO: RemoveGreater - повторы
 // TODO: Заменить возвращаемые объекты на клоны
