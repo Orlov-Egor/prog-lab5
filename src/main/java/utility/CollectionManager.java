@@ -84,6 +84,20 @@ public class CollectionManager {
         return sumOfHealth;
     }
 
+    public String maxByMeleeWeapon() {
+        if (collectionSize() == 0) return "Коллекция пуста!";
+
+        SpaceMarine maxMarine = marinesCollection.first();
+
+        for (SpaceMarine marine : marinesCollection) {
+            if (marine.getMeleeWeapon().compareTo(maxMarine.getMeleeWeapon()) > 0) {
+                maxMarine = marine;
+            }
+        }
+
+        return maxMarine.toString();
+    }
+
     public String weaponFilteredInfo(Weapon weaponToFilter) {
         if (collectionSize() == 0) return "Коллекция пуста!";
 

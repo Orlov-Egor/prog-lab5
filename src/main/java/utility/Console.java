@@ -56,6 +56,9 @@ public class Console {
                 case "sum_of_health":
                     commandManager.sumOfHealth(userCommand[1]);
                     break;
+                case "max_by_melee_weapon":
+                    commandManager.maxByMeleeWeapon(userCommand[1]);
+                    break;
                 case "filter_by_weapon_type":
                     commandManager.filterByWeaponType(userCommand[1]);
                     break;

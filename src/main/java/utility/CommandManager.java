@@ -21,11 +21,12 @@ public class CommandManager {
     private Command addIfMinCommand;
     private Command removeGreaterCommand;
     private Command sumOfHealthCommand;
+    private Command maxByMeleeWeaponCommand;
     private Command filterByWeaponTypeCommand;
 
     public CommandManager(Command infoCommand, Command showCommand, Command addCommand, Command updateCommand,
                           Command removeByIdCommand, Command clearCommand, Command saveCommand, Command addIfMinCommand,
-                          Command removeGreaterCommand, Command sumOfHealthCommand, Command filterByWeaponTypeCommand) {
+                          Command removeGreaterCommand, Command sumOfHealthCommand, Command maxByMeleeWeaponCommand, Command filterByWeaponTypeCommand) {
        this.infoCommand = infoCommand;
        this.showCommand = showCommand;
        this.addCommand = addCommand;
@@ -34,8 +35,9 @@ public class CommandManager {
        this.clearCommand = clearCommand;
        this.saveCommand = saveCommand;
        this.addIfMinCommand = addIfMinCommand;
-       this.sumOfHealthCommand = sumOfHealthCommand;
        this.removeGreaterCommand = removeGreaterCommand;
+       this.sumOfHealthCommand = sumOfHealthCommand;
+       this.maxByMeleeWeaponCommand = maxByMeleeWeaponCommand;
        this.filterByWeaponTypeCommand = filterByWeaponTypeCommand;
 
        commands.add(infoCommand);
@@ -45,9 +47,10 @@ public class CommandManager {
        commands.add(removeByIdCommand);
        commands.add(clearCommand);
        commands.add(saveCommand);
-       commands.add(sumOfHealthCommand);
        commands.add(addIfMinCommand);
        commands.add(removeGreaterCommand);
+       commands.add(sumOfHealthCommand);
+       commands.add(maxByMeleeWeaponCommand);
        commands.add(filterByWeaponTypeCommand);
     }
 
@@ -134,6 +137,10 @@ public class CommandManager {
 
     public void sumOfHealth(String argument) {
         sumOfHealthCommand.execute(argument);
+    }
+
+    public void maxByMeleeWeapon(String argument) {
+        maxByMeleeWeaponCommand.execute(argument);
     }
 
     public void filterByWeaponType(String argument) {

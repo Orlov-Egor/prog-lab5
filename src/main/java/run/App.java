@@ -12,6 +12,7 @@ import commands.AddIfMinCommand;
 import commands.ClearCommand;
 import commands.FilterByWeaponTypeCommand;
 import commands.InfoCommand;
+import commands.MaxByMeleeWeaponCommand;
 import commands.RemoveByIdCommand;
 import commands.RemoveGreaterCommand;
 import commands.SaveCommand;
@@ -50,6 +51,7 @@ public class App {
                 new AddIfMinCommand(collectionManager, marineAsker),
                 new RemoveGreaterCommand(collectionManager, marineAsker),
                 new SumOfHealthCommand(collectionManager),
+                new MaxByMeleeWeaponCommand(collectionManager),
                 new FilterByWeaponTypeCommand(collectionManager)
             );
             Console console = new Console(commandManager, userScanner);
