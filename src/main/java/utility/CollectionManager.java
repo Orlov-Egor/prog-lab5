@@ -134,14 +134,7 @@ public class CollectionManager {
     }
 
     private void loadCollection() {
-        Type collectionType = new TypeToken<TreeSet<SpaceMarine>>(){}.getType();
-
-            try {
-                marinesCollection = gson.fromJson(fileManager.readCollection().toString(), collectionType);
-            } catch (JsonSyntaxException ex) {
-                System.out.println("Ошибка синтаксиса Json. Коллекция не может быть загружена.");
-                System.exit(1);
-            }
+        marinesCollection = fileManager.readCollection();
         lastInitTime = LocalDateTime.now();
     }
 
