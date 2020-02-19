@@ -21,7 +21,6 @@ public class AddIfMinCommand extends AbstractCommand {
     public void execute(String argument) {
         try {
             if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
-            
             SpaceMarine marineToAdd = new SpaceMarine(
                 collectionManager.generateNextId(),
                 marineAsker.askName(),
@@ -33,7 +32,6 @@ public class AddIfMinCommand extends AbstractCommand {
                 marineAsker.askMeleeWeapon(),
                 marineAsker.askChapter()
             );
-
             if (collectionManager.collectionSize() == 0 || marineToAdd.compareTo(collectionManager.getFirst()) < 0) {
                 collectionManager.addToCollection(marineToAdd);
                 System.out.println("Солдат успешно добавлен!");

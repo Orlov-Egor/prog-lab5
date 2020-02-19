@@ -16,9 +16,7 @@ public class FilterByWeaponTypeCommand extends AbstractCommand {
     public void execute(String argument) {
         try {
             if (argument.isEmpty()) throw new WrongAmountOfElementsException();
-
             Weapon weapon = Weapon.valueOf(argument.toUpperCase());
-
             System.out.println(collectionManager.weaponFilteredInfo(weapon));
         } catch (WrongAmountOfElementsException exception) {
             System.out.println(" Использование: '" + getName() + "'");

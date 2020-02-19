@@ -24,7 +24,6 @@ public class RemoveGreaterCommand extends AbstractCommand {
         try {
             if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
             if (collectionManager.collectionSize() == 0) throw new CollectionIsEmptyException();
-            
             SpaceMarine marineToFind = new SpaceMarine(
                 collectionManager.generateNextId(),
                 marineAsker.askName(),
@@ -36,12 +35,9 @@ public class RemoveGreaterCommand extends AbstractCommand {
                 marineAsker.askMeleeWeapon(),
                 marineAsker.askChapter()
             );
-
             SpaceMarine marineFromCollection = collectionManager.getByValue(marineToFind);
             if (marineFromCollection == null) throw new MarineNotFoundException();
-
             collectionManager.removeGreater(marineFromCollection);
-
             System.out.println("Солдаты успешно удалены!");
         } catch (WrongAmountOfElementsException exception) {
             System.out.println(" Использование: '" + getName() + "'");

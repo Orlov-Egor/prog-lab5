@@ -51,7 +51,7 @@ public class Console {
                     commandManager.removeGreater(userCommand[1]);
                     break;
                 case "history":
-                    commandManager.history();
+                    commandManager.history(userCommand[1]);
                     break;
                 case "sum_of_health":
                     commandManager.sumOfHealth(userCommand[1]);
@@ -63,12 +63,11 @@ public class Console {
                     commandManager.filterByWeaponType(userCommand[1]);
                     break;
                 case "exit":
-                    if (!userCommand[1].isEmpty()) System.out.println(" Использование: 'exit'");
+                    commandManager.exit(userCommand[1]);
                     break;
                 default:
                     commandManager.noSuchCommand(userCommand[0]);
             }
-
             commandManager.addToHistory(userCommand[0]);
         }
     }

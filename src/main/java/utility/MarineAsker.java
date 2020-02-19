@@ -14,7 +14,7 @@ import exceptions.WrongAmountOfElementsException;
 
 public class MarineAsker {
     private final int MAX_Y = 262;
-    private final double MIN_HEALTH = 1;
+    private final double MIN_HEALTH = 0;
     final int MAX_MARINES = 1000;
 
     private Scanner userScanner;
@@ -25,7 +25,6 @@ public class MarineAsker {
 
     public String askName() {
         String name;
-
         while (true) {
             try {
                 System.out.print("Введите имя: ");
@@ -41,7 +40,6 @@ public class MarineAsker {
                 System.exit(0);
             }
         }
-
         return name;
     }
 
@@ -49,7 +47,6 @@ public class MarineAsker {
         String[] strCoordArray;
         double x;
         Float y;
-
         while (true) {
             try {
                 System.out.println(" Формат ввода местоположения - 'X Y', где Y < " + (MAX_Y+1));
@@ -73,13 +70,11 @@ public class MarineAsker {
                 System.exit(0);
             }
         }
-
         return new Coordinates(x, y);
     }
 
     public double askHealth() {
         double health;
-
         while (true) {
             try {
                 System.out.print("Введите здоровье: ");
@@ -97,13 +92,11 @@ public class MarineAsker {
                 System.exit(0);
             }
         }
-
         return health;
     }
 
     public AstartesCategory askCategory() {
         AstartesCategory category;
-
         while (true) {
             try {
                 System.out.println(" Список категорий - DREADNOUGHT, ASSAULT, TACTICAL, CHAPLAIN, APOTHECARY");
@@ -119,13 +112,11 @@ public class MarineAsker {
                 System.exit(0);
             }
         }
-
         return category;
     }
 
     public Weapon askWeaponType() {
         Weapon weaponType;
-
         while (true) {
             try {
                 System.out.println(" Список оружия дальнего боя - HEAVY_BOLTGUN, BOLT_PISTOL, GRAV_GUN");
@@ -141,13 +132,11 @@ public class MarineAsker {
                 System.exit(0);
             }
         }
-
         return weaponType;
     }
 
     public MeleeWeapon askMeleeWeapon() {
         MeleeWeapon meleeWeapon;
-
         while (true) {
             try {
                 System.out.println(" Список оружия ближнего боя - CHAIN_SWORD,  CHAIN_AXE, LIGHTING_CLAW, POWER_BLADE, POWER_FIST");
@@ -163,7 +152,6 @@ public class MarineAsker {
                 System.exit(0);
             }
         }
-
         return meleeWeapon;
     }
 
@@ -171,7 +159,6 @@ public class MarineAsker {
         String[] strChapterArray;
         String name;
         long marinesCount;
-
         while (true) {
             try {
                 System.out.println(" Формат ввода ордена - 'NAME MARINES', где MARINES < " + (MAX_MARINES+1));
@@ -180,12 +167,12 @@ public class MarineAsker {
                 if (strChapterArray.length != 2) throw new WrongAmountOfElementsException();
                 name = strChapterArray[0];
                 marinesCount = Long.parseLong(strChapterArray[1]);
-                if (marinesCount > MAX_MARINES) throw new NotInDeclaredLimitsException();
+                if (marinesCount > MAX_MARINES || marinesCount < 1) throw new NotInDeclaredLimitsException();
                 break;
             } catch (NoSuchElementException exception) {
                 System.out.println(" Орден не распознан!");
             } catch (NotInDeclaredLimitsException exception) {
-                System.out.println(" Количество солдат в ордене не может превышать " + MAX_MARINES + "!");
+                System.out.println(" Количество солдат в ордене должно быть положительным и не превышать " + MAX_MARINES + "!");
             } catch (WrongAmountOfElementsException exception) {
                 System.out.println(" Неверное количество характеристик ордена!");
             } catch (NumberFormatException exception) {
@@ -195,14 +182,12 @@ public class MarineAsker {
                 System.exit(0);
             }
         }
-
         return new Chapter(name, marinesCount);
     }
 
     public boolean askQuestion(String question) {
         String finalQuestion = question + " (+/-): ";
         String answer;
-
         while (true) {
             try {
                 System.out.print(finalQuestion);
@@ -218,7 +203,6 @@ public class MarineAsker {
                 System.exit(0);
             }
         }
-
         return (answer.equals("+")) ? true : false;
     }
 }

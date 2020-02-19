@@ -21,7 +21,6 @@ public class AddCommand extends AbstractCommand {
     public void execute(String argument) {
         try {
             if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
-            
             collectionManager.addToCollection(new SpaceMarine(
                 collectionManager.generateNextId(),
                 marineAsker.askName(),
@@ -33,7 +32,6 @@ public class AddCommand extends AbstractCommand {
                 marineAsker.askMeleeWeapon(),
                 marineAsker.askChapter()
             ));
-
             System.out.println("Солдат успешно добавлен!");
         } catch (WrongAmountOfElementsException exception) {
             System.out.println(" Использование: '" + getName() + "'");

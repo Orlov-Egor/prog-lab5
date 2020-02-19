@@ -31,7 +31,6 @@ public class UpdateCommand extends AbstractCommand {
             if (collectionManager.collectionSize() == 0) throw new CollectionIsEmptyException();
 
             Long id = Long.parseLong(argument);
-
             SpaceMarine oldMarine = collectionManager.getById(id);
             if (oldMarine == null) throw new MarineNotFoundException();
 
@@ -65,7 +64,6 @@ public class UpdateCommand extends AbstractCommand {
                 meleeWeapon,
                 chapter
             ));
-
             System.out.println("Солдат успешно изменен!");
         } catch (WrongAmountOfElementsException exception) {
             System.out.println(" Использование: '" + getName() + "'");

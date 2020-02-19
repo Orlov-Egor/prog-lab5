@@ -3,15 +3,15 @@ package data;
 import java.time.LocalDateTime;
 
 public class SpaceMarine implements Comparable<SpaceMarine> {
-    private Long id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
-    private String name; //Поле не может быть null, Строка не может быть пустой
-    private Coordinates coordinates; //Поле не может быть null
-    private LocalDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
-    private double health; //Значение поля должно быть больше 0
-    private AstartesCategory category; //Поле может быть null
-    private Weapon weaponType; //Поле не может быть null
-    private MeleeWeapon meleeWeapon; //Поле не может быть null
-    private Chapter chapter; //Поле может быть null
+    private Long id;
+    private String name;
+    private Coordinates coordinates;
+    private LocalDateTime creationDate;
+    private double health;
+    private AstartesCategory category;
+    private Weapon weaponType;
+    private MeleeWeapon meleeWeapon;
+    private Chapter chapter;
 
     public SpaceMarine(Long id, String name, Coordinates coordinates, LocalDateTime creationDate, double health,
                        AstartesCategory category, Weapon weaponType, MeleeWeapon meleeWeapon, Chapter chapter) {
@@ -63,16 +63,13 @@ public class SpaceMarine implements Comparable<SpaceMarine> {
     }
 
     @Override
-    public int compareTo(SpaceMarine o) {
-        if (id > o.getId()) return 1;
-        else if (id < o.getId()) return -1;
-        else return 0;
+    public int compareTo(SpaceMarine marineObj) {
+        return id.compareTo(marineObj.getId());
     }
 
     @Override
     public String toString() {
         String info = "";
-
         info += "Солдат №" + id;
         info += " (добавлен " + creationDate.toLocalDate() + " " + creationDate.toLocalTime() + ")";
         info += "\n Имя: " + name;
@@ -82,7 +79,6 @@ public class SpaceMarine implements Comparable<SpaceMarine> {
         info += "\n Дальнее оружие: " + weaponType;
         info += "\n Ближнее оружие: " + meleeWeapon;
         info += "\n Орден: " + chapter;
-
         return info;
     }
 

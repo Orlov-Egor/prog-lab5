@@ -19,14 +19,10 @@ public class RemoveByIdCommand extends AbstractCommand {
         try {
             if (argument.isEmpty()) throw new WrongAmountOfElementsException();
             if (collectionManager.collectionSize() == 0) throw new CollectionIsEmptyException();
-
             Long id = Long.parseLong(argument);
-
             SpaceMarine marineToRemove = collectionManager.getById(id);
             if (marineToRemove == null) throw new MarineNotFoundException();
-
             collectionManager.removeFromCollection(marineToRemove);
-
             System.out.println("Солдат успешно удален!");
         } catch (WrongAmountOfElementsException exception) {
             System.out.println(" Использование: '" + getName() + "'");

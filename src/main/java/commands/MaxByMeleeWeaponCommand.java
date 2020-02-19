@@ -15,7 +15,6 @@ public class MaxByMeleeWeaponCommand extends AbstractCommand {
     public void execute(String argument) {
         try {
             if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
-            
             System.out.println(collectionManager.maxByMeleeWeapon());
         } catch (WrongAmountOfElementsException exception) {
             System.out.println(" Использование: '" + getName() + "'");
