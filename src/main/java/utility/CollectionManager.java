@@ -4,6 +4,13 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.TreeSet;
 
+import com.google.gson.Gson;
+
+import java.lang.reflect.*;
+import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
+
+
 import data.AstartesCategory;
 import data.Chapter;
 import data.Coordinates;
@@ -15,6 +22,8 @@ public class CollectionManager {
     private TreeSet<SpaceMarine> marinesCollection =  new TreeSet<>();
     private LocalDateTime lastInitTime = null;
     private LocalDateTime lastSaveTime = null;
+
+    private Gson gson = new Gson();
 
     private FileManager fileManager;
 
@@ -125,12 +134,14 @@ public class CollectionManager {
     }
 
     private void loadCollection() {
-        marinesCollection.add(new SpaceMarine(generateNextId(), "Test1", new Coordinates(2.0, 3.0F), LocalDateTime.now(), 100.0, AstartesCategory.DREADNOUGHT,
-                        Weapon.GRAV_GUN, MeleeWeapon.POWER_BLADE, new Chapter("TestChapter1", 243L)));
-        marinesCollection.add(new SpaceMarine(generateNextId(), "Test2", new Coordinates(36.0, 41.0F), LocalDateTime.now(), 56.0, AstartesCategory.ASSAULT,
-                        Weapon.BOLT_PISTOL, MeleeWeapon.POWER_FIST, new Chapter("TestChapter2", 398L)));
-        String tt = fileManager.readCollection();
-        System.out.println(tt);
+        Type collectionType = new TypeToken<TreeSet<SpaceMarine>>(){}.getType();
+
+            try {
+                marinesCollection = gson.fromJson(fileManager.readCollection().toString(), collectionType);
+            } catch (JsonSyntaxException ex) {
+                System.out.println("Ошибка синтаксиса Json. Коллекция не может быть загружена.");
+                System.exit(1);
+            }
         lastInitTime = LocalDateTime.now();
     }
 
