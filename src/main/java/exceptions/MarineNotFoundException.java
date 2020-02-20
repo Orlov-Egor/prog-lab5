@@ -1,5 +1,5 @@
 package exceptions;
 /**
-* Is throwed when Marine is not found.
+* Is throwed when marine is not found.
 */
 public class MarineNotFoundException extends Exception {}
