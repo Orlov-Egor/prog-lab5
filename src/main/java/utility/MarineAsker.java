@@ -205,4 +205,9 @@ public class MarineAsker {
         }
         return (answer.equals("+")) ? true : false;
     }
+
+    @Override
+    public String toString() {
+        return "MarineAsker (вспомогательный класс для запросов пользователю)";
+    }
 }

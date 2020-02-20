@@ -55,4 +55,10 @@ public class FileManager {
         }
         return new TreeSet<SpaceMarine>();
     }
+
+    @Override
+    public String toString() {
+        String string = "FileManager (класс для работы с загрузочным файлом)";
+        return string;
+    }
 }

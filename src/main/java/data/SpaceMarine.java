@@ -83,6 +83,12 @@ public class SpaceMarine implements Comparable<SpaceMarine> {
     }
 
     @Override
+    public int hashCode() {
+        return name.hashCode() + coordinates.hashCode() + (int) health + category.hashCode() + weaponType.hashCode() +
+                meleeWeapon.hashCode() + chapter.hashCode();
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj instanceof SpaceMarine) {

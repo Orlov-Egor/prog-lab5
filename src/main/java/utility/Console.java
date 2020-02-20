@@ -107,4 +107,9 @@ public class Console {
                 commandManager.noSuchCommand(userCommand[0]);
         }
     }
+
+    @Override
+    public String toString() {
+        return "Console (класс для обработки ввода команд)";
+    }
 }

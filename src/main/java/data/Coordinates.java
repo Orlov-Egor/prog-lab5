@@ -21,6 +21,11 @@ public class Coordinates {
     public String toString() {
         return "X:" + x + " Y:" + y;
     }
+    
+    @Override
+    public int hashCode() {
+        return y.hashCode() + (int) x;
+    }
 
     @Override
     public boolean equals(Object obj) {
