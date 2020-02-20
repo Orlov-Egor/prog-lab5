@@ -30,6 +30,14 @@ public class CollectionManager {
         return lastSaveTime;
     }
 
+    public FileManager getFileManager() {
+        return fileManager;
+    }
+
+    public NavigableSet getNavigableSet() {
+        return marinesCollection;
+    }
+
     public String collectionType() {
         return marinesCollection.getClass().getName();
     }
@@ -137,5 +145,21 @@ public class CollectionManager {
             if (marine != marinesCollection.last()) info += "\n\n";
         }
         return info;
+    }
+
+    @Override
+    public int hashCode() {
+        return lastInitTime.hashCode() + lastSaveTime.hashCode() + marinesCollection.hashCode() + fileManager.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj instanceof CollectionManager) {
+            CollectionManager collectionObj = (CollectionManager) obj;
+            return lastInitTime.equals(collectionObj.getLastInitTime()) && lastSaveTime.equals(collectionObj.getLastSaveTime())
+                && marinesCollection.equals(collectionObj.getNavigableSet()) && fileManager.equals(collectionObj.getFileManager());
+        }
+        return false;
     }
 }

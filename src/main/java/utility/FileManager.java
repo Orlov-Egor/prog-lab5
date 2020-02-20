@@ -51,4 +51,10 @@ public class FileManager {
         }
         return new TreeSet<SpaceMarine>();
     }
+
+    @Override
+    public String toString() {
+        String string = "FileManager (" + collectionFile + ")";
+        return string;
+    }
 }

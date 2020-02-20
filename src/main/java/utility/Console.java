@@ -71,4 +71,9 @@ public class Console {
             commandManager.addToHistory(userCommand[0]);
         }
     }
+
+    @Override
+    public String toString() {
+        return "Console";
+    }
 }

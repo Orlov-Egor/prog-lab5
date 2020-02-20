@@ -205,4 +205,23 @@ public class MarineAsker {
         }
         return (answer.equals("+")) ? true : false;
     }
+
+    @Override
+    public String toString() {
+        return "MarinAsker (Вспомогательный глас для комманд, где присутствует {element})";
+    }
+
+    @Override
+    public int hashCode() {
+        return userScanner.hashCode();
+    }
+    
+    @Override
+    public boolean equals(Object obj){
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (getClass() != obj.getClass()) return false;
+        MarineAsker other = (MarineAsker) obj;
+        return userScanner.equals(other.userScanner);
+    }
 }

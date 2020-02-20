@@ -163,4 +163,9 @@ public class CommandManager {
     public void filterByWeaponType(String argument) {
         filterByWeaponTypeCommand.execute(argument);
     }
+
+    @Override
+    public String toString() {
+        return "CommandManager (Вспомогательный класс инициализирующий и вызывающий команды)";
+    }
 }
