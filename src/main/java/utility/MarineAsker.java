@@ -99,7 +99,7 @@ public class MarineAsker {
         AstartesCategory category;
         while (true) {
             try {
-                System.out.println(" Список категорий - DREADNOUGHT, ASSAULT, TACTICAL, CHAPLAIN, APOTHECARY");
+                System.out.println(" Список категорий - " + AstartesCategory.nameList());
                 System.out.print("Введите категорию: ");
                 category = AstartesCategory.valueOf(userScanner.nextLine().trim().toUpperCase());
                 break;
@@ -119,7 +119,7 @@ public class MarineAsker {
         Weapon weaponType;
         while (true) {
             try {
-                System.out.println(" Список оружия дальнего боя - HEAVY_BOLTGUN, BOLT_PISTOL, GRAV_GUN");
+                System.out.println(" Список оружия дальнего боя - " + Weapon.nameList());
                 System.out.print("Введите оружие дальнего боя: ");
                 weaponType = Weapon.valueOf(userScanner.nextLine().trim().toUpperCase());
                 break;
@@ -139,7 +139,7 @@ public class MarineAsker {
         MeleeWeapon meleeWeapon;
         while (true) {
             try {
-                System.out.println(" Список оружия ближнего боя - CHAIN_SWORD,  CHAIN_AXE, LIGHTING_CLAW, POWER_BLADE, POWER_FIST");
+                System.out.println(" Список оружия ближнего боя - " + MeleeWeapon.nameList());
                 System.out.print("Введите оружие ближнего боя: ");
                 meleeWeapon = MeleeWeapon.valueOf(userScanner.nextLine().trim().toUpperCase());
                 break;

@@ -1,11 +1,6 @@
 package run;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Scanner;
-
-import com.google.gson.Gson;
 
 import commands.AddCommand;
 import commands.AddIfMinCommand;
@@ -28,9 +23,8 @@ import utility.Console;
 import utility.FileManager;
 import utility.MarineAsker;
 
-// TODO: RemoveGreater - повторы
-// TODO: Заменить возвращаемые объекты на клоны (переопределять их, когда принимаю)
-// TODO: Вывод ENUM-констант универсально
+// TODO: RemoveGreater - повторы (?)
+// TODO: Заменить возвращаемые объекты на клоны (?)
 
 public class App {
     public static final String envVariable = "LABA";

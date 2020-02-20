@@ -93,7 +93,7 @@ public class CollectionManager {
                 marker = true;
             }
         }
-        return (marker) ? info.substring(0, info.length()-2) : "В коллекции нет солдат с выбранным типом оружия!";
+        return (marker) ? info.trim() : "В коллекции нет солдат с выбранным типом оружия!";
     }
 
     public void addToCollection(SpaceMarine marine) {

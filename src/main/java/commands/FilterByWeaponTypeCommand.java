@@ -22,7 +22,7 @@ public class FilterByWeaponTypeCommand extends AbstractCommand {
             System.out.println(" Использование: '" + getName() + "'");
         } catch (IllegalArgumentException exception) {
             System.out.println(" Оружия нет в списке!");
-            System.out.println(" Список оружия дальнего боя - HEAVY_BOLTGUN, BOLT_PISTOL, GRAV_GUN");
+            System.out.println(" Список оружия дальнего боя - " + Weapon.nameList());
         }
     }
 }

@@ -4,4 +4,12 @@ public enum Weapon {
     HEAVY_BOLTGUN,
     BOLT_PISTOL,
     GRAV_GUN;
+
+    public static String nameList() {
+        String nameList = "";
+        for (Weapon weaponType : values()) {
+            nameList += weaponType.name() + ", ";
+        }
+        return nameList.substring(0, nameList.length()-2);
+    }
 }

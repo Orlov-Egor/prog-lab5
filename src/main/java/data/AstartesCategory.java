@@ -6,4 +6,12 @@ public enum AstartesCategory {
     TACTICAL,
     CHAPLAIN,
     APOTHECARY;
+
+    public static String nameList() {
+        String nameList = "";
+        for (AstartesCategory category : values()) {
+            nameList += category.name() + ", ";
+        }
+        return nameList.substring(0, nameList.length()-2);
+    }
 }
