@@ -5,6 +5,7 @@ import java.util.Scanner;
 import commands.AddCommand;
 import commands.AddIfMinCommand;
 import commands.ClearCommand;
+import commands.ExecuteScriptCommand;
 import commands.ExitCommand;
 import commands.FilterByWeaponTypeCommand;
 import commands.HelpCommand;
@@ -44,6 +45,7 @@ public class App {
                 new ClearCommand(collectionManager),
                 new SaveCommand(collectionManager),
                 new ExitCommand(),
+                new ExecuteScriptCommand(),
                 new AddIfMinCommand(collectionManager, marineAsker),
                 new RemoveGreaterCommand(collectionManager, marineAsker),
                 new HistoryCommand(),

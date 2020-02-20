@@ -1,7 +1,5 @@
 package commands;
 
-import java.io.IOException;
-
 import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
 
@@ -21,8 +19,6 @@ public class SaveCommand extends AbstractCommand {
             System.out.println("Коллекция успешна сохранена в файл!");
         } catch (WrongAmountOfElementsException exception) {
             System.out.println(" Использование: '" + getName() + "'");
-        } catch (IOException exception) {
-            System.out.println("Не удается сохранить коллекцию в файл!");
         }
     }
 }

@@ -21,6 +21,7 @@ public class CommandManager {
     private Command clearCommand;
     private Command saveCommand;
     private Command exitCommand;
+    private Command executeScriptCommand;
     private Command addIfMinCommand;
     private Command removeGreaterCommand;
     private Command historyCommand;
@@ -29,9 +30,9 @@ public class CommandManager {
     private Command filterByWeaponTypeCommand;
 
     public CommandManager(Command helpCommand, Command infoCommand, Command showCommand, Command addCommand, Command updateCommand,
-                          Command removeByIdCommand, Command clearCommand, Command saveCommand, Command exitCommand, Command addIfMinCommand,
-                          Command removeGreaterCommand, Command historyCommand, Command sumOfHealthCommand, Command maxByMeleeWeaponCommand,
-                          Command filterByWeaponTypeCommand) {
+                          Command removeByIdCommand, Command clearCommand, Command saveCommand, Command exitCommand, Command executeScriptCommand,
+                          Command addIfMinCommand, Command removeGreaterCommand, Command historyCommand, Command sumOfHealthCommand,
+                          Command maxByMeleeWeaponCommand, Command filterByWeaponTypeCommand) {
         this.helpCommand = helpCommand;
         this.infoCommand = infoCommand;
         this.showCommand = showCommand;
@@ -41,6 +42,7 @@ public class CommandManager {
         this.clearCommand = clearCommand;
         this.saveCommand = saveCommand;
         this.exitCommand = exitCommand;
+        this.executeScriptCommand = executeScriptCommand;
         this.addIfMinCommand = addIfMinCommand;
         this.removeGreaterCommand = removeGreaterCommand;
         this.historyCommand = historyCommand;
@@ -57,6 +59,7 @@ public class CommandManager {
         commands.add(clearCommand);
         commands.add(saveCommand);
         commands.add(exitCommand);
+        commands.add(executeScriptCommand);
         commands.add(addIfMinCommand);
         commands.add(removeGreaterCommand);
         commands.add(historyCommand);
@@ -72,7 +75,7 @@ public class CommandManager {
     public void addToHistory(String commandToStore) {
 
         for (Command command : commands) {
-            if (command.getName().equals(commandToStore)) {
+            if (command.getName().split(" ")[0].equals(commandToStore)) {
                 for (int i = COMMAND_HISTORY_SIZE-1; i>0; i--) {
                     commandHistory[i] = commandHistory[i-1];
                 }
@@ -127,6 +130,10 @@ public class CommandManager {
 
     public void exit(String argument) {
         exitCommand.execute(argument);
+    }
+
+    public void executeScript(String argument) {
+        executeScriptCommand.execute(argument);
     }
 
     public void addIfMin(String argument) {

@@ -117,7 +117,7 @@ public class CollectionManager {
         return marinesCollection.last().getId() + 1;
     }
 
-    public void saveCollection() throws IOException {
+    public void saveCollection() {
             fileManager.writeCollection(marinesCollection);
             lastSaveTime = LocalDateTime.now();
     }
