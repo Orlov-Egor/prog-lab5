@@ -1,5 +1,8 @@
 package commands;
 
+/**
+ * Abstract Command class contains Object methods, name and description
+ */
 public abstract class AbstractCommand implements Command {
     private String name;
     private String description;

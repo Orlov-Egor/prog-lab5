@@ -7,6 +7,9 @@ import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
 import utility.MarineAsker;
 
+/**
+ * Command 'add'. Adds a new element to collection.
+ */
 public class AddCommand extends AbstractCommand {
     private CollectionManager collectionManager;
     private MarineAsker marineAsker;
@@ -17,6 +20,9 @@ public class AddCommand extends AbstractCommand {
         this.marineAsker = marineAsker;
     }
 
+    /**
+     * Executes the command.
+     */
     @Override
     public void execute(String argument) {
         try {

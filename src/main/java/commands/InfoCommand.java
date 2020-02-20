@@ -5,6 +5,9 @@ import java.time.LocalDateTime;
 import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
 
+/**
+ * Command 'info'. Prints information about the collection.
+ */
 public class InfoCommand extends AbstractCommand {
     private CollectionManager collectionManager;
 
@@ -13,6 +16,9 @@ public class InfoCommand extends AbstractCommand {
         this.collectionManager = collectionManager;
     }
 
+    /**
+     * Executes the command.
+     */
     @Override
     public void execute(String argument) {
         try {

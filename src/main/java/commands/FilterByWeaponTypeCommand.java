@@ -4,6 +4,9 @@ import data.Weapon;
 import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
 
+/**
+ * Command 'filter_by_weapon_type'. Filters the collection by weapon type.
+ */
 public class FilterByWeaponTypeCommand extends AbstractCommand {
     private CollectionManager collectionManager;
 
@@ -12,6 +15,9 @@ public class FilterByWeaponTypeCommand extends AbstractCommand {
         this.collectionManager = collectionManager;
     }
 
+    /**
+     * Executes the command.
+     */
     @Override
     public void execute(String argument) {
         try {

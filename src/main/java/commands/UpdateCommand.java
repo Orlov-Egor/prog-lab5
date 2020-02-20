@@ -14,6 +14,9 @@ import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
 import utility.MarineAsker;
 
+/**
+ * Command 'update'. Updates the information about selected marine.
+ */
 public class UpdateCommand extends AbstractCommand {
     private CollectionManager collectionManager;
     private MarineAsker marineAsker;
@@ -24,6 +27,9 @@ public class UpdateCommand extends AbstractCommand {
         this.marineAsker = marineAsker;
     }
 
+    /**
+     * Executes the command.
+     */
     @Override
     public void execute(String argument) {
         try {

@@ -9,6 +9,9 @@ import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
 import utility.MarineAsker;
 
+/**
+ * Command 'remove_greater'. Removes elements greater than user entered.
+ */
 public class RemoveGreaterCommand extends AbstractCommand {
     private CollectionManager collectionManager;
     private MarineAsker marineAsker;
@@ -19,6 +22,9 @@ public class RemoveGreaterCommand extends AbstractCommand {
         this.marineAsker = marineAsker;
     }
 
+    /**
+     * Executes the command.
+     */
     @Override
     public void execute(String argument) {
         try {

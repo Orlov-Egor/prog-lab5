@@ -3,6 +3,9 @@ package commands;
 import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
 
+/**
+ * Command 'max_by_melee_weapon'. Prints the element of the collection with maximum melee weapon.
+ */
 public class MaxByMeleeWeaponCommand extends AbstractCommand {
     private CollectionManager collectionManager;
 
@@ -11,6 +14,9 @@ public class MaxByMeleeWeaponCommand extends AbstractCommand {
         this.collectionManager = collectionManager;
     }
 
+    /**
+     * Executes the command.
+     */
     @Override
     public void execute(String argument) {
         try {

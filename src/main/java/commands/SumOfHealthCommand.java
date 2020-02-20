@@ -4,6 +4,9 @@ import exceptions.CollectionIsEmptyException;
 import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
 
+/**
+ * Command 'sum_of_health'. Prints the sum of health of all marines.
+ */
 public class SumOfHealthCommand extends AbstractCommand {
     private CollectionManager collectionManager;
 
@@ -12,6 +15,9 @@ public class SumOfHealthCommand extends AbstractCommand {
         this.collectionManager = collectionManager;
     }
 
+    /**
+     * Executes the command.
+     */
     @Override
     public void execute(String argument) {
         try {

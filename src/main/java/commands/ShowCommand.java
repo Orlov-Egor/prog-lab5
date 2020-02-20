@@ -3,6 +3,9 @@ package commands;
 import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
 
+/**
+ * Command 'show'. Shows information about all elements of the collection.
+ */
 public class ShowCommand extends AbstractCommand {
     private CollectionManager collectionManager;
 
@@ -11,6 +14,9 @@ public class ShowCommand extends AbstractCommand {
         this.collectionManager = collectionManager;
     }
 
+    /**
+     * Executes the command.
+     */
     @Override
     public void execute(String argument) {
         try {

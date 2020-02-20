@@ -7,6 +7,9 @@ import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
 import utility.MarineAsker;
 
+/**
+ * Command 'add_if_min'. Adds a new element to collection if it's less than minimal one.
+ */
 public class AddIfMinCommand extends AbstractCommand {
     private CollectionManager collectionManager;
     private MarineAsker marineAsker;
@@ -17,6 +20,9 @@ public class AddIfMinCommand extends AbstractCommand {
         this.marineAsker = marineAsker;
     }
 
+    /**
+     * Executes the command.
+     */
     @Override
     public void execute(String argument) {
         try {

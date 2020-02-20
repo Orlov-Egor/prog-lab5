@@ -6,6 +6,9 @@ import exceptions.WrongAmountOfElementsException;
 import exceptions.CollectionIsEmptyException;
 import utility.CollectionManager;
 
+/**
+ * Command 'remove_by_id'. Removes the element by its ID.
+ */
 public class RemoveByIdCommand extends AbstractCommand {
     private CollectionManager collectionManager;
 
@@ -14,6 +17,9 @@ public class RemoveByIdCommand extends AbstractCommand {
         this.collectionManager = collectionManager;
     }
 
+    /**
+     * Executes the command.
+     */
     @Override
     public void execute(String argument) {
         try {
