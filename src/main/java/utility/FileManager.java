@@ -18,31 +18,35 @@ import data.SpaceMarine;
 
 public class FileManager {
     private Gson gson = new Gson();
-    private File collectionFile;
+    private String envVariable;
 
-    public FileManager() {
-        collectionFile = new File("marinesCollection.json");
+    public FileManager(String envVariable) {
+        this.envVariable = envVariable;
     }
 
     public void writeCollection(Collection<?> collection) {
-    	try (FileWriter collectionFileWriter = new FileWriter(collectionFile)) {
+    	try (FileWriter collectionFileWriter = new FileWriter(new File(System.getenv().get(envVariable)))) {
         	collectionFileWriter.write(gson.toJson(collection));
-    	} catch (IOException exception) {
+    	} catch (NullPointerException exception) {
+            System.out.println("Системная переменная с загрузочным файлом не найдена!");
+        } catch (IOException exception) {
     		System.out.println("Загрузочный файл является директорией/не может быть открыт!");
     	}
     }
 
     public TreeSet<SpaceMarine> readCollection() {
-        try (Scanner collectionFileScanner = new Scanner(collectionFile)) {
+        try (Scanner collectionFileScanner = new Scanner(new File(System.getenv().get(envVariable)))) {
         	TreeSet<SpaceMarine> collection;
             Type collectionType = new TypeToken<TreeSet<SpaceMarine>>(){}.getType();
             collection = gson.fromJson(collectionFileScanner.nextLine().trim(), collectionType);
             System.out.println("Коллекция успешна загружена!");
             return collection;
-        } catch (NoSuchElementException exception) {
-            System.out.println("Загрузочный файл пуст!");
+        } catch (NullPointerException exception) {
+            System.out.println("Системная переменная с загрузочным файлом не найдена!");
         } catch (FileNotFoundException exception) {
             System.out.println("Загрузочный файл не найден!");
+        } catch (NoSuchElementException exception) {
+            System.out.println("Загрузочный файл пуст!");
         } catch (JsonParseException exception) {
             System.out.println("В загрузочном файле не обнаружена коллекция!");
         } catch (IllegalStateException exception) {

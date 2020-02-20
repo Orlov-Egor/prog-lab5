@@ -28,18 +28,16 @@ import utility.Console;
 import utility.FileManager;
 import utility.MarineAsker;
 
-// TODO: Добавить конструкторов utility-классам
-// TODO: Сделать нормальные ошибки для работы с файлами
-// TODO: Имя файла через переменную окружения
 // TODO: RemoveGreater - повторы
 // TODO: Заменить возвращаемые объекты на клоны (переопределять их, когда принимаю)
 // TODO: Вывод ENUM-констант универсально
 
 public class App {
+    public static final String envVariable = "LABA";
     public static void main(String[] args) {
         try (Scanner userScanner = new Scanner(System.in)) {
             MarineAsker marineAsker = new MarineAsker(userScanner);
-            FileManager fileManager = new FileManager();
+            FileManager fileManager = new FileManager(envVariable);
             CollectionManager collectionManager = new CollectionManager(fileManager);
             CommandManager commandManager = new CommandManager(
                 new HelpCommand(),
