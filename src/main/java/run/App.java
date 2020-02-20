@@ -26,7 +26,7 @@ import utility.MarineAsker;
 
 // TODO: RemoveGreater - повторы (?)
 // TODO: Заменить возвращаемые объекты на клоны (?)
-// TODO: Реализовать скрипты
+// TODO: Реализовать нормальный exit в скрипте (?)
 
 public class App {
     public static final String envVariable = "LABA";
