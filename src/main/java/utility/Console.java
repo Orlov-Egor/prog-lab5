@@ -5,6 +5,9 @@ import java.io.FileNotFoundException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
+/**
+ * Operate command input.
+ */
 public class Console {
     private CommandManager commandManager;
     private Scanner userScanner;
@@ -14,6 +17,9 @@ public class Console {
         this.userScanner = userScanner;
     }
 
+    /**
+     * Mode for catching commands from user input.
+     */
     public void interactiveMode() {
         String[] userCommand = {"", ""};
         try {
@@ -32,6 +38,10 @@ public class Console {
         }
     }
 
+    /**
+     * Mode for catching commands from a script.
+     * @param argument Its argument.
+     */
     public void scriptMode(String argument) {
         String[] userCommand = {"", ""};
         try (Scanner scriptScanner = new Scanner(new File(argument))) {
@@ -52,6 +62,10 @@ public class Console {
         }
     }
 
+    /**
+     * Launchs the command.
+     * @param userCommand Command to launch.
+     */
     private void launchCommand(String[] userCommand) {
         switch (userCommand[0]) {
             case "help":

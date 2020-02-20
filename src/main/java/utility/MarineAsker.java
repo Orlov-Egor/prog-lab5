@@ -12,6 +12,9 @@ import exceptions.MustBeNotEmptyException;
 import exceptions.NotInDeclaredLimitsException;
 import exceptions.WrongAmountOfElementsException;
 
+/**
+ * Asks user a marine's value.
+ */
 public class MarineAsker {
     private final int MAX_Y = 262;
     private final double MIN_HEALTH = 0;
@@ -23,6 +26,10 @@ public class MarineAsker {
         this.userScanner = userScanner;
     }
 
+    /**
+     * Asks user a marine's name.
+     * @return Marine's name.
+     */
     public String askName() {
         String name;
         while (true) {
@@ -43,6 +50,10 @@ public class MarineAsker {
         return name;
     }
 
+    /**
+     * Asks user a marine's coordinates.
+     * @return Marine's coordinates.
+     */
     public Coordinates askCoordinates() {
         String[] strCoordArray;
         double x;
@@ -73,6 +84,10 @@ public class MarineAsker {
         return new Coordinates(x, y);
     }
 
+    /**
+     * Asks user a marine's health.
+     * @return Marine's health.
+     */
     public double askHealth() {
         double health;
         while (true) {
@@ -95,6 +110,10 @@ public class MarineAsker {
         return health;
     }
 
+    /**
+     * Asks user a marine's category.
+     * @return Marine's category.
+     */
     public AstartesCategory askCategory() {
         AstartesCategory category;
         while (true) {
@@ -115,6 +134,10 @@ public class MarineAsker {
         return category;
     }
 
+    /**
+     * Asks user a marine's weapon type.
+     * @return Marine's weapon type.
+     */
     public Weapon askWeaponType() {
         Weapon weaponType;
         while (true) {
@@ -135,6 +158,10 @@ public class MarineAsker {
         return weaponType;
     }
 
+    /**
+     * Asks user a marine's melee weapon.
+     * @return Marine's melee weapon.
+     */
     public MeleeWeapon askMeleeWeapon() {
         MeleeWeapon meleeWeapon;
         while (true) {
@@ -155,6 +182,10 @@ public class MarineAsker {
         return meleeWeapon;
     }
 
+    /**
+     * Asks user a marine's chapter.
+     * @return Marine's chapter.
+     */
     public Chapter askChapter() {
         String[] strChapterArray;
         String name;
@@ -185,6 +216,10 @@ public class MarineAsker {
         return new Chapter(name, marinesCount);
     }
 
+    /**
+     * Asks user a question.
+     * @return Answer (true/false).
+     */
     public boolean askQuestion(String question) {
         String finalQuestion = question + " (+/-): ";
         String answer;

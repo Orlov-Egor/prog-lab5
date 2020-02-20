@@ -7,6 +7,9 @@ import commands.Command;
 import exceptions.HistoryIsEmptyException;
 import exceptions.WrongAmountOfElementsException;
 
+/**
+ * Operates the commands.
+ */
 public class CommandManager {
     private final int COMMAND_HISTORY_SIZE = 8;
 
@@ -72,6 +75,10 @@ public class CommandManager {
         return commandHistory;
     }
 
+    /**
+     * Adds command to command history.
+     * @param commandToStore Command to add.
+     */
     public void addToHistory(String commandToStore) {
 
         for (Command command : commands) {
@@ -84,10 +91,18 @@ public class CommandManager {
         }
     }
 
+    /**
+     * Prints that command is not found.
+     * @param command Comand, which is not found.
+     */
     public void noSuchCommand(String command) {
         System.out.println("Команда '" + command + "' не найдена. Наберите 'help' для справки.");
     }
     
+    /**
+     * Prints info about the all commands.
+     * @param argument Its argument.
+     */
     public void help(String argument) {
         try {
             if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
@@ -100,49 +115,87 @@ public class CommandManager {
         }
     }
 
+    /**
+     * Executes needed command.
+     */
     public void info(String argument) {
         infoCommand.execute(argument);
     }
 
+    /**
+     * Executes needed command.
+     */
     public void show(String argument) {
         showCommand.execute(argument);
     }
 
+    /**
+     * Executes needed command.
+     */
     public void add(String argument) {
         addCommand.execute(argument);
     }
 
+    /**
+     * Executes needed command.
+     */
     public void update(String argument) {
         updateCommand.execute(argument);
     }
 
+    /**
+     * Executes needed command.
+     */
     public void removeById(String argument) {
         removeByIdCommand.execute(argument);
     }
 
+    /**
+     * Executes needed command.
+     */
     public void clear(String argument) {
         clearCommand.execute(argument);
     }
 
+    /**
+     * Executes needed command.
+     */
     public void save(String argument) {
         saveCommand.execute(argument);
     }
 
+    /**
+     * Executes needed command.
+     */
     public void exit(String argument) {
         exitCommand.execute(argument);
     }
 
+    /**
+     * Executes needed command.
+     */
     public void executeScript(String argument) {
         executeScriptCommand.execute(argument);
     }
 
+    /**
+     * Executes needed command.
+     */
     public void addIfMin(String argument) {
         addIfMinCommand.execute(argument);
     }
 
+    /**
+     * Executes needed command.
+     */
     public void removeGreater(String argument) {
         removeGreaterCommand.execute(argument);
     }
+
+    /**
+     * Prints the history of used commands.
+     * @param argument Its argument.
+     */
     public void history(String argument) {
         try {
             if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
@@ -159,14 +212,23 @@ public class CommandManager {
         }
     }
 
+    /**
+     * Executes needed command.
+     */
     public void sumOfHealth(String argument) {
         sumOfHealthCommand.execute(argument);
     }
 
+    /**
+     * Executes needed command.
+     */
     public void maxByMeleeWeapon(String argument) {
         maxByMeleeWeaponCommand.execute(argument);
     }
 
+    /**
+     * Executes needed command.
+     */
     public void filterByWeaponType(String argument) {
         filterByWeaponTypeCommand.execute(argument);
     }

@@ -12,7 +12,7 @@ public class ExecuteScriptCommand extends AbstractCommand {
     }
 
     /**
-     * Executes the command.
+     * Executes the command, but partially.
      */
     @Override
     public void execute(String argument) {

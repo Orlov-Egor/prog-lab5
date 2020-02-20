@@ -1,7 +1,7 @@
 package commands;
 
 /**
- * Command 'history'. Prints the history of last used commands.
+ * Command 'history'. It's here just for logical structure.
  */
 public class HistoryCommand extends AbstractCommand {
 
@@ -10,7 +10,7 @@ public class HistoryCommand extends AbstractCommand {
     }
 
     /**
-     * Executes the command.
+     * Executes the command. (Easter Egg)
      */
     @Override
     public void execute(String argument) {

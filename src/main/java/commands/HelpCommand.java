@@ -1,7 +1,7 @@
 package commands;
 
 /**
- * Command 'help'. Prints the hint.
+ * Command 'help'. It's here just for logical structure.
  */
 public class HelpCommand extends AbstractCommand {
 
@@ -10,7 +10,7 @@ public class HelpCommand extends AbstractCommand {
     }
 
     /**
-     * Executes the command.
+     * Executes the command. (Easter Egg)
      */
     @Override
     public void execute(String argument) {

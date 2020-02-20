@@ -16,6 +16,9 @@ import com.google.gson.JsonParseException;
 
 import data.SpaceMarine;
 
+/**
+ * Operates the file to save/load collection.
+ */
 public class FileManager {
     private Gson gson = new Gson();
     private String envVariable;
@@ -24,6 +27,10 @@ public class FileManager {
         this.envVariable = envVariable;
     }
 
+    /**
+     * Writes collection to a file.
+     * @param collection Collection to write.
+     */
     public void writeCollection(Collection<?> collection) {
     	try (FileWriter collectionFileWriter = new FileWriter(new File(System.getenv().get(envVariable)))) {
         	collectionFileWriter.write(gson.toJson(collection));
@@ -34,6 +41,10 @@ public class FileManager {
     	}
     }
 
+    /**
+     * Reads collection from a file.
+     * @return Readed collection.
+     */
     public TreeSet<SpaceMarine> readCollection() {
         try (Scanner collectionFileScanner = new Scanner(new File(System.getenv().get(envVariable)))) {
         	TreeSet<SpaceMarine> collection;

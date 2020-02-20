@@ -27,7 +27,12 @@ import utility.MarineAsker;
 // TODO: RemoveGreater - повторы (?)
 // TODO: Заменить возвращаемые объекты на клоны (?)
 // TODO: Реализовать нормальный exit в скрипте (?)
+// TODO: Долизать javadoc
 
+/**
+ * Main application class. Creates all instances and runs the program.
+ * @author Sviridov Dmitry & Orlov Egor
+ */
 public class App {
     public static final String envVariable = "LABA";
     public static void main(String[] args) {
