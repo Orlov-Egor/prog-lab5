@@ -28,6 +28,10 @@ import utility.MarineAsker;
 // TODO: Заменить возвращаемые объекты на клоны (?)
 // TODO: Реализовать нормальный exit в скрипте (?)
 // TODO: Перекостылить завершение скрипта при падении add, ...
+// TODO: Исправить реакцию на пустые строки в скрипте
+// TODO: Обрабатывать execute_script внутри скрипта
+// TODO: Запрашивать каждое значение в отдельную строку
+// TODO: Попробовать изменить PS1
 
 /**
  * Main application class. Creates all instances and runs the program.

@@ -5,8 +5,6 @@ import java.io.FileNotFoundException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
-import exceptions.IncorrectInputInScriptException;
-
 /**
  * Operates command input.
  */

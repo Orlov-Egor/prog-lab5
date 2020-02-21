@@ -215,7 +215,6 @@ public class MarineAsker {
      * @return Marine's melee weapon.
      */
     public MeleeWeapon askMeleeWeapon() throws IncorrectInputInScriptException {
-        String strMeleeWeapon;
         MeleeWeapon meleeWeapon;
         while (true) {
             try {
