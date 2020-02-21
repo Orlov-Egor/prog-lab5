@@ -13,7 +13,7 @@ import exceptions.NotInDeclaredLimitsException;
 import exceptions.WrongAmountOfElementsException;
 
 /**
- * Asks user a marine's value.
+ * Asks a user a marine's value.
  */
 public class MarineAsker {
     private final int MAX_Y = 262;
@@ -27,7 +27,7 @@ public class MarineAsker {
     }
 
     /**
-     * Asks user a marine's name.
+     * Asks a user a marine's name.
      * @return Marine's name.
      */
     public String askName() {
@@ -51,7 +51,7 @@ public class MarineAsker {
     }
 
     /**
-     * Asks user a marine's coordinates.
+     * Asks a user a marine's coordinates.
      * @return Marine's coordinates.
      */
     public Coordinates askCoordinates() {
@@ -85,7 +85,7 @@ public class MarineAsker {
     }
 
     /**
-     * Asks user a marine's health.
+     * Asks a user a marine's health.
      * @return Marine's health.
      */
     public double askHealth() {
@@ -111,7 +111,7 @@ public class MarineAsker {
     }
 
     /**
-     * Asks user a marine's category.
+     * Asks a user a marine's category.
      * @return Marine's category.
      */
     public AstartesCategory askCategory() {
@@ -135,7 +135,7 @@ public class MarineAsker {
     }
 
     /**
-     * Asks user a marine's weapon type.
+     * Asks a user a marine's weapon type.
      * @return Marine's weapon type.
      */
     public Weapon askWeaponType() {
@@ -159,7 +159,7 @@ public class MarineAsker {
     }
 
     /**
-     * Asks user a marine's melee weapon.
+     * Asks a user a marine's melee weapon.
      * @return Marine's melee weapon.
      */
     public MeleeWeapon askMeleeWeapon() {
@@ -183,7 +183,7 @@ public class MarineAsker {
     }
 
     /**
-     * Asks user a marine's chapter.
+     * Asks a user a marine's chapter.
      * @return Marine's chapter.
      */
     public Chapter askChapter() {
@@ -217,7 +217,7 @@ public class MarineAsker {
     }
 
     /**
-     * Asks user a question.
+     * Asks a user a question.
      * @return Answer (true/false).
      */
     public boolean askQuestion(String question) {

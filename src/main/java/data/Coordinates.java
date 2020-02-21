@@ -1,5 +1,8 @@
 package data;
 
+/**
+ * X-Y coordinates.
+ */
 public class Coordinates {
     private double x;
     private Float y;
@@ -9,10 +12,16 @@ public class Coordinates {
         this.y = y;
     }
 
+    /**
+     * @return X-coordinate.
+     */
     public double getX() {
         return x;
     }
 
+    /**
+     * @return Y-coordinate.
+     */
     public Float getY() {
         return y;
     }

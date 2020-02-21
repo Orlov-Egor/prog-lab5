@@ -12,10 +12,16 @@ public abstract class AbstractCommand implements Command {
         this.description = description;
     }
 
+    /**
+     * @return Usage of the command.
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * @return Discription of the command.
+     */
     public String getDescription() {
         return description;
     }

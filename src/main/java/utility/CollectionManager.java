@@ -24,10 +24,16 @@ public class CollectionManager {
         loadCollection();
     }
 
+    /**
+     * @return Last initialization time.
+     */
     public LocalDateTime getLastInitTime() {
         return lastInitTime;
     }
 
+    /**
+     * @return Last save time.
+     */
     public LocalDateTime getLastSaveTime() {
         return lastSaveTime;
     }

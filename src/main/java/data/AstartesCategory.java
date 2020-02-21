@@ -1,5 +1,8 @@
 package data;
 
+/**
+ * Enumeration with marine category constants.
+ */
 public enum AstartesCategory {
     DREADNOUGHT,
     ASSAULT,
@@ -7,6 +10,10 @@ public enum AstartesCategory {
     CHAPLAIN,
     APOTHECARY;
 
+    /**
+     * Generates a beautiful list of enum string values.
+     * @return String with all enum values splitted by comma.
+     */
     public static String nameList() {
         String nameList = "";
         for (AstartesCategory category : values()) {

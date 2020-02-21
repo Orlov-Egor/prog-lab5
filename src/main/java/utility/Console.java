@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /**
- * Operate command input.
+ * Operates command input.
  */
 public class Console {
     private CommandManager commandManager;

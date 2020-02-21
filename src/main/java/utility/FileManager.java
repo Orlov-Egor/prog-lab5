@@ -17,7 +17,7 @@ import com.google.gson.JsonParseException;
 import data.SpaceMarine;
 
 /**
- * Operates the file to save/load collection.
+ * Operates the file for saving/loading collection.
  */
 public class FileManager {
     private Gson gson = new Gson();

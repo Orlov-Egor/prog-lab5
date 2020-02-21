@@ -1,5 +1,8 @@
 package data;
 
+/**
+ * Chapter with marines.
+ */
 public class Chapter {
     private String name;
     private long marinesCount;
@@ -9,10 +12,16 @@ public class Chapter {
         this.marinesCount = marinesCount;
     }
 
+    /**
+     * @return Name of the chapter.
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * @return Number of marines in the chapter.
+     */
     public long getMarinesCount() {
         return marinesCount;
     }

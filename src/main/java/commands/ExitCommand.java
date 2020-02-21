@@ -3,7 +3,7 @@ package commands;
 import exceptions.WrongAmountOfElementsException;
 
 /**
- * Command 'exit'. Closes the program.
+ * Command 'exit'. Checks for wrong arguments then do nothing.
  */
 public class ExitCommand extends AbstractCommand {
 

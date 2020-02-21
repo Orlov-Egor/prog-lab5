@@ -1,5 +1,8 @@
 package data;
 
+/**
+ * Enumeration with marine melee weapon constants.
+ */
 public enum MeleeWeapon {
     CHAIN_SWORD,
     CHAIN_AXE,
@@ -7,6 +10,10 @@ public enum MeleeWeapon {
     POWER_BLADE,
     POWER_FIST;
 
+    /**
+     * Generates a beautiful list of enum string values.
+     * @return String with all enum values splitted by comma.
+     */
     public static String nameList() {
         String nameList = "";
         for (MeleeWeapon meleeWeapon : values()) {

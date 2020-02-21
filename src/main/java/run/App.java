@@ -27,7 +27,6 @@ import utility.MarineAsker;
 // TODO: RemoveGreater - повторы (?)
 // TODO: Заменить возвращаемые объекты на клоны (?)
 // TODO: Реализовать нормальный exit в скрипте (?)
-// TODO: Долизать javadoc
 
 /**
  * Main application class. Creates all instances and runs the program.
