@@ -33,9 +33,9 @@ import utility.MarineAsker;
  * @author Sviridov Dmitry and Orlov Egor
  */
 public class App {
-    public static final String envVariable = "LABA";
     public static void main(String[] args) {
         try (Scanner userScanner = new Scanner(System.in)) {
+            final String envVariable = "LABA";
             MarineAsker marineAsker = new MarineAsker(userScanner);
             FileManager fileManager = new FileManager(envVariable);
             CollectionManager collectionManager = new CollectionManager(fileManager);
