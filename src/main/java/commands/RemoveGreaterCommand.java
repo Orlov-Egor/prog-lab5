@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import data.SpaceMarine;
 import exceptions.CollectionIsEmptyException;
+import exceptions.IncorrectInputInScriptException;
 import exceptions.MarineNotFoundException;
 import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
@@ -51,6 +52,8 @@ public class RemoveGreaterCommand extends AbstractCommand {
             System.out.println("Коллекция пуста!");
         } catch (MarineNotFoundException exception) {
             System.out.println("Солдата с такими характеристиками в коллекции нет!");
+        } catch (IncorrectInputInScriptException exception) {
+            System.out.println(" Проверьте скрипт на корректность введенных данных!");
         }
     }
 }

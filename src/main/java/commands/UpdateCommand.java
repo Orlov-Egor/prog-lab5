@@ -9,6 +9,7 @@ import data.MeleeWeapon;
 import data.SpaceMarine;
 import data.Weapon;
 import exceptions.CollectionIsEmptyException;
+import exceptions.IncorrectInputInScriptException;
 import exceptions.MarineNotFoundException;
 import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
@@ -79,6 +80,8 @@ public class UpdateCommand extends AbstractCommand {
             System.out.println("ID должен быть представлен числом!");
         } catch (MarineNotFoundException exception) {
             System.out.println("Солдата с таким ID в коллекции нет!");
+        } catch (IncorrectInputInScriptException exception) {
+            System.out.println(" Проверьте скрипт на корректность введенных данных!");
         }
     }
 }

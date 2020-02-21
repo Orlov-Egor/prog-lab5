@@ -5,6 +5,7 @@ import java.util.List;
 
 import commands.Command;
 import exceptions.HistoryIsEmptyException;
+import exceptions.IncorrectInputInScriptException;
 import exceptions.WrongAmountOfElementsException;
 
 /**

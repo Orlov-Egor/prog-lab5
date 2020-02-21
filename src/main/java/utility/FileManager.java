@@ -32,13 +32,14 @@ public class FileManager {
      * @param collection Collection to write.
      */
     public void writeCollection(Collection<?> collection) {
-    	try (FileWriter collectionFileWriter = new FileWriter(new File(System.getenv().get(envVariable)))) {
-        	collectionFileWriter.write(gson.toJson(collection));
-    	} catch (NullPointerException exception) {
-            System.out.println("Системная переменная с загрузочным файлом не найдена!");
-        } catch (IOException exception) {
-    		System.out.println("Загрузочный файл является директорией/не может быть открыт!");
-    	}
+        if (System.getenv().get(envVariable) != null) {
+            try (FileWriter collectionFileWriter = new FileWriter(new File(System.getenv().get(envVariable)))) {
+                collectionFileWriter.write(gson.toJson(collection));
+                System.out.println("Коллекция успешна сохранена в файл!");
+            } catch (IOException exception) {
+                System.out.println("Загрузочный файл является директорией/не может быть открыт!");
+            }
+        } else System.out.println("Системная переменная с загрузочным файлом не найдена!");
     }
 
     /**
@@ -46,24 +47,24 @@ public class FileManager {
      * @return Readed collection.
      */
     public TreeSet<SpaceMarine> readCollection() {
-        try (Scanner collectionFileScanner = new Scanner(new File(System.getenv().get(envVariable)))) {
-        	TreeSet<SpaceMarine> collection;
-            Type collectionType = new TypeToken<TreeSet<SpaceMarine>>(){}.getType();
-            collection = gson.fromJson(collectionFileScanner.nextLine().trim(), collectionType);
-            System.out.println("Коллекция успешна загружена!");
-            return collection;
-        } catch (NullPointerException exception) {
-            System.out.println("Системная переменная с загрузочным файлом не найдена!");
-        } catch (FileNotFoundException exception) {
-            System.out.println("Загрузочный файл не найден!");
-        } catch (NoSuchElementException exception) {
-            System.out.println("Загрузочный файл пуст!");
-        } catch (JsonParseException exception) {
-            System.out.println("В загрузочном файле не обнаружена коллекция!");
-        } catch (IllegalStateException exception) {
-            System.out.println("Непредвиденная ошибка!");
-            System.exit(0);
-        }
+        if (System.getenv().get(envVariable) != null) {
+            try (Scanner collectionFileScanner = new Scanner(new File(System.getenv().get(envVariable)))) {
+                TreeSet<SpaceMarine> collection;
+                Type collectionType = new TypeToken<TreeSet<SpaceMarine>>() {}.getType();
+                collection = gson.fromJson(collectionFileScanner.nextLine().trim(), collectionType);
+                System.out.println("Коллекция успешна загружена!");
+                return collection;
+            } catch (FileNotFoundException exception) {
+                System.out.println("Загрузочный файл не найден!");
+            } catch (NoSuchElementException exception) {
+                System.out.println("Загрузочный файл пуст!");
+            } catch (JsonParseException | NullPointerException exception) {
+                System.out.println("В загрузочном файле не обнаружена необходимая коллекция!");
+            } catch (IllegalStateException exception) {
+                System.out.println("Непредвиденная ошибка!");
+                System.exit(0);
+            }
+        } else System.out.println("Системная переменная с загрузочным файлом не найдена!");
         return new TreeSet<SpaceMarine>();
     }
 

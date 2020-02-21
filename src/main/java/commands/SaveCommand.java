@@ -22,7 +22,6 @@ public class SaveCommand extends AbstractCommand {
         try {
             if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
             collectionManager.saveCollection();
-            System.out.println("Коллекция успешна сохранена в файл!");
         } catch (WrongAmountOfElementsException exception) {
             System.out.println(" Использование: '" + getName() + "'");
         }

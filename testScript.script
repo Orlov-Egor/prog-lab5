@@ -1,5 +1,12 @@
 help
-show
+clear
+add
+Dmitry
+2 2
+12
+assault
+grav_gu
+chain_axe
+test 122
+save
 exit
-
-df

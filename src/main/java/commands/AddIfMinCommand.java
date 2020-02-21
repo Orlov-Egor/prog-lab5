@@ -3,6 +3,7 @@ package commands;
 import java.time.LocalDateTime;
 
 import data.SpaceMarine;
+import exceptions.IncorrectInputInScriptException;
 import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
 import utility.MarineAsker;
@@ -44,6 +45,8 @@ public class AddIfMinCommand extends AbstractCommand {
             } else System.out.println("Значение солдата больше, чем значение наименьшего из солдат!");
         } catch (WrongAmountOfElementsException exception) {
             System.out.println(" Использование: '" + getName() + "'");
+        } catch (IncorrectInputInScriptException exception) {
+            System.out.println(" Проверьте скрипт на корректность введенных данных!");
         }
     }
 }

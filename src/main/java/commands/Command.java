@@ -1,5 +1,7 @@
 package commands;
 
+import exceptions.IncorrectInputInScriptException;
+
 /**
  * Interface for all commands.
  */

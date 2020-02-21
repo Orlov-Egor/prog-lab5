@@ -3,6 +3,7 @@ package commands;
 import java.time.LocalDateTime;
 
 import data.SpaceMarine;
+import exceptions.IncorrectInputInScriptException;
 import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
 import utility.MarineAsker;
@@ -41,6 +42,8 @@ public class AddCommand extends AbstractCommand {
             System.out.println("Солдат успешно добавлен!");
         } catch (WrongAmountOfElementsException exception) {
             System.out.println(" Использование: '" + getName() + "'");
+        } catch (IncorrectInputInScriptException exception) {
+            System.out.println(" Проверьте скрипт на корректность введенных данных!");
         }
     }
 }

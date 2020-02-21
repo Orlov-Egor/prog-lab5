@@ -27,6 +27,7 @@ import utility.MarineAsker;
 // TODO: RemoveGreater - повторы (?)
 // TODO: Заменить возвращаемые объекты на клоны (?)
 // TODO: Реализовать нормальный exit в скрипте (?)
+// TODO: Перекостылить завершение скрипта при падении add, ...
 
 /**
  * Main application class. Creates all instances and runs the program.
@@ -36,6 +37,7 @@ public class App {
     public static void main(String[] args) {
         try (Scanner userScanner = new Scanner(System.in)) {
             final String envVariable = "LABA";
+
             MarineAsker marineAsker = new MarineAsker(userScanner);
             FileManager fileManager = new FileManager(envVariable);
             CollectionManager collectionManager = new CollectionManager(fileManager);
@@ -57,7 +59,7 @@ public class App {
                 new MaxByMeleeWeaponCommand(collectionManager),
                 new FilterByWeaponTypeCommand(collectionManager)
             );
-            Console console = new Console(commandManager, userScanner);
+            Console console = new Console(commandManager, userScanner, marineAsker);
 
             console.interactiveMode();
         }
