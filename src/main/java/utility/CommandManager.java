@@ -117,6 +117,7 @@ public class CommandManager {
 
     /**
      * Executes needed command.
+     * @param argument Its argument.
      */
     public void info(String argument) {
         infoCommand.execute(argument);
@@ -124,6 +125,7 @@ public class CommandManager {
 
     /**
      * Executes needed command.
+     * @param argument Its argument.
      */
     public void show(String argument) {
         showCommand.execute(argument);
@@ -131,6 +133,7 @@ public class CommandManager {
 
     /**
      * Executes needed command.
+     * @param argument Its argument.
      */
     public void add(String argument) {
         addCommand.execute(argument);
@@ -138,6 +141,7 @@ public class CommandManager {
 
     /**
      * Executes needed command.
+     * @param argument Its argument.
      */
     public void update(String argument) {
         updateCommand.execute(argument);
@@ -145,6 +149,7 @@ public class CommandManager {
 
     /**
      * Executes needed command.
+     * @param argument Its argument.
      */
     public void removeById(String argument) {
         removeByIdCommand.execute(argument);
@@ -152,6 +157,7 @@ public class CommandManager {
 
     /**
      * Executes needed command.
+     * @param argument Its argument.
      */
     public void clear(String argument) {
         clearCommand.execute(argument);
@@ -159,6 +165,7 @@ public class CommandManager {
 
     /**
      * Executes needed command.
+     * @param argument Its argument.
      */
     public void save(String argument) {
         saveCommand.execute(argument);
@@ -166,6 +173,7 @@ public class CommandManager {
 
     /**
      * Executes needed command.
+     * @param argument Its argument.
      */
     public void exit(String argument) {
         exitCommand.execute(argument);
@@ -173,6 +181,7 @@ public class CommandManager {
 
     /**
      * Executes needed command.
+     * @param argument Its argument.
      */
     public void executeScript(String argument) {
         executeScriptCommand.execute(argument);
@@ -180,6 +189,7 @@ public class CommandManager {
 
     /**
      * Executes needed command.
+     * @param argument Its argument.
      */
     public void addIfMin(String argument) {
         addIfMinCommand.execute(argument);
@@ -187,6 +197,7 @@ public class CommandManager {
 
     /**
      * Executes needed command.
+     * @param argument Its argument.
      */
     public void removeGreater(String argument) {
         removeGreaterCommand.execute(argument);
@@ -214,6 +225,7 @@ public class CommandManager {
 
     /**
      * Executes needed command.
+     * @param argument Its argument.
      */
     public void sumOfHealth(String argument) {
         sumOfHealthCommand.execute(argument);
@@ -221,6 +233,7 @@ public class CommandManager {
 
     /**
      * Executes needed command.
+     * @param argument Its argument.
      */
     public void maxByMeleeWeapon(String argument) {
         maxByMeleeWeaponCommand.execute(argument);
@@ -228,6 +241,7 @@ public class CommandManager {
 
     /**
      * Executes needed command.
+     * @param argument Its argument.
      */
     public void filterByWeaponType(String argument) {
         filterByWeaponTypeCommand.execute(argument);

@@ -219,6 +219,7 @@ public class MarineAsker {
     /**
      * Asks a user a question.
      * @return Answer (true/false).
+     * @param question A question.
      */
     public boolean askQuestion(String question) {
         String finalQuestion = question + " (+/-): ";

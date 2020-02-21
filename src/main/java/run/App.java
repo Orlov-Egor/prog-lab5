@@ -30,7 +30,7 @@ import utility.MarineAsker;
 
 /**
  * Main application class. Creates all instances and runs the program.
- * @author Sviridov Dmitry & Orlov Egor
+ * @author Sviridov Dmitry and Orlov Egor
  */
 public class App {
     public static final String envVariable = "LABA";
