@@ -161,15 +161,12 @@ public class MarineAsker {
      * @return Marine's category.
      */
     public AstartesCategory askCategory() throws IncorrectInputInScriptException {
-        String strCategory;
         AstartesCategory category;
         while (true) {
             try {
                 System.out.println(" Список категорий - " + AstartesCategory.nameList());
                 System.out.print("Введите категорию: ");
-                strCategory = userScanner.nextLine().trim().toUpperCase();
-                if (fileMode) System.out.println(strCategory);
-                category = AstartesCategory.valueOf(strCategory);
+                category = AstartesCategory.valueOf(userScanner.nextLine().trim().toUpperCase());
                 if (fileMode) System.out.println(category);
                 break;
             } catch (NoSuchElementException exception) {
@@ -191,15 +188,13 @@ public class MarineAsker {
      * @return Marine's weapon type.
      */
     public Weapon askWeaponType() throws IncorrectInputInScriptException {
-        String strWeaponType;
         Weapon weaponType;
         while (true) {
             try {
                 System.out.println(" Список оружия дальнего боя - " + Weapon.nameList());
                 System.out.print("Введите оружие дальнего боя: ");
-                strWeaponType = userScanner.nextLine().trim().toUpperCase();
-                if (fileMode) System.out.println(strWeaponType);
-                weaponType = Weapon.valueOf(strWeaponType);
+                weaponType = Weapon.valueOf(userScanner.nextLine().trim().toUpperCase());
+                if (fileMode) System.out.println(weaponType);
                 break;
             } catch (NoSuchElementException exception) {
                 System.out.println(" Оружие не распознано!");
@@ -226,9 +221,8 @@ public class MarineAsker {
             try {
                 System.out.println(" Список оружия ближнего боя - " + MeleeWeapon.nameList());
                 System.out.print("Введите оружие ближнего боя: ");
-                strMeleeWeapon = userScanner.nextLine().trim().toUpperCase();
-                if (fileMode) System.out.println(strMeleeWeapon);
-                meleeWeapon = MeleeWeapon.valueOf(strMeleeWeapon);
+                meleeWeapon = MeleeWeapon.valueOf(userScanner.nextLine().trim().toUpperCase());
+                if (fileMode) System.out.println(meleeWeapon);
                 break;
             } catch (NoSuchElementException exception) {
                 System.out.println(" Оружие не распознано!");
