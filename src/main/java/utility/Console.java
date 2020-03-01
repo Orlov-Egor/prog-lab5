@@ -139,14 +139,26 @@ public class Console {
         return true;
     }
 
+    /**
+     * Prints toOut.toString() to System.out
+     * @param toOut Object to print
+     */
     public static void print(Object toOut) {
         System.out.print(toOut);
     }
 
+    /**
+     * Prints toOut.toString() + \n to System.out
+     * @param toOut Object to print
+     */
     public static void println(Object toOut) {
         System.out.println(toOut);
     }
 
+    /**
+     * Prints error: toOut.toString() to System.out
+     * @param toOut Error to print
+     */
     public static void printerror(Object toOut) {
         System.out.println("error: " + toOut);
     }

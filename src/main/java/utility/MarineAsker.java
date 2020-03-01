@@ -11,7 +11,6 @@ import data.Weapon;
 import exceptions.IncorrectInputInScriptException;
 import exceptions.MustBeNotEmptyException;
 import exceptions.NotInDeclaredLimitsException;
-import exceptions.WrongAmountOfElementsException;
 import run.App;
 
 /**
@@ -61,7 +60,7 @@ public class MarineAsker {
     }
 
     /**
-     * Asks a user a marine's name.
+     * Asks a user the marine's name.
      * @return Marine's name.
      */
     public String askName() throws IncorrectInputInScriptException {
@@ -88,6 +87,10 @@ public class MarineAsker {
         return name;
     }
 
+    /**
+     * Asks a user the marine's X coordinate.
+     * @return Marine's X coordinate.
+     */
     public double askX() throws IncorrectInputInScriptException {
         String strX;
         double x;
@@ -113,6 +116,10 @@ public class MarineAsker {
         return x;
     }
 
+    /**
+     * Asks a user the marine's Y coordinate.
+     * @return Marine's Y coordinate.
+     */
     public Float askY() throws IncorrectInputInScriptException {
         String strY;
         Float y;
@@ -143,7 +150,7 @@ public class MarineAsker {
     }
 
     /**
-     * Asks a user a marine's coordinates.
+     * Asks a user the marine's coordinates.
      * @return Marine's coordinates.
      */
     public Coordinates askCoordinates() throws IncorrectInputInScriptException {
@@ -155,7 +162,7 @@ public class MarineAsker {
     }
 
     /**
-     * Asks a user a marine's health.
+     * Asks a user the marine's health.
      * @return Marine's health.
      */
     public double askHealth() throws IncorrectInputInScriptException {
@@ -188,7 +195,7 @@ public class MarineAsker {
     }
 
     /**
-     * Asks a user a marine's category.
+     * Asks a user the marine's category.
      * @return Marine's category.
      */
     public AstartesCategory askCategory() throws IncorrectInputInScriptException {
@@ -216,7 +223,7 @@ public class MarineAsker {
     }
 
     /**
-     * Asks a user a marine's weapon type.
+     * Asks a user the marine's weapon type.
      * @return Marine's weapon type.
      */
     public Weapon askWeaponType() throws IncorrectInputInScriptException {
@@ -244,7 +251,7 @@ public class MarineAsker {
     }
 
     /**
-     * Asks a user a marine's melee weapon.
+     * Asks a user the marine's melee weapon.
      * @return Marine's melee weapon.
      */
     public MeleeWeapon askMeleeWeapon() throws IncorrectInputInScriptException {
@@ -271,6 +278,10 @@ public class MarineAsker {
         return meleeWeapon;
     }
 
+    /**
+     * Asks a user the marine chapter's name.
+     * @return Chapter's name.
+     */
     public String askChapterName() throws IncorrectInputInScriptException {
         String chapterName;
         while (true) {
@@ -295,6 +306,10 @@ public class MarineAsker {
         return chapterName;
     }
 
+    /**
+     * Asks a user the marine chapter's number of soldiers.
+     * @return Number of soldiers.
+     */
     public long askChapterMarinesCount() throws IncorrectInputInScriptException {
         String strMarinesCount;
         long marinesCount;
@@ -325,7 +340,7 @@ public class MarineAsker {
     }
 
     /**
-     * Asks a user a marine's chapter.
+     * Asks a user the marine's chapter.
      * @return Marine's chapter.
      */
     public Chapter askChapter() throws IncorrectInputInScriptException {
