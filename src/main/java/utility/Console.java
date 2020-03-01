@@ -55,11 +55,15 @@ public class Console {
             do {
                 userCommand = (scriptScanner.nextLine().trim() + " ").split(" ", 2);
                 userCommand[1] = userCommand[1].trim();
+                while (scriptScanner.hasNextLine() && userCommand[0].isEmpty()) {
+                    userCommand = (scriptScanner.nextLine().trim() + " ").split(" ", 2);
+                    userCommand[1] = userCommand[1].trim();
+                }
                 System.out.println(App.PS1 + String.join(" ", userCommand));
             } while (launchCommand(userCommand) && scriptScanner.hasNextLine());
             marineAsker.setUserScanner(tmpScanner);
             marineAsker.setUserMode();
-            if (userCommand[0].equals("exit") || userCommand[1].isEmpty()) return true;
+            if (userCommand[0].equals("exit") && userCommand[1].isEmpty()) return true;
         } catch (FileNotFoundException exception) {
             System.out.println("Файл со скриптом не найден!");
         } catch (NoSuchElementException exception) {
@@ -77,6 +81,8 @@ public class Console {
      */
     private boolean launchCommand(String[] userCommand) {
         switch (userCommand[0]) {
+            case "":
+                break;
             case "help":
                 commandManager.help(userCommand[1]);
                 break;
