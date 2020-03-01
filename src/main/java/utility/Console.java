@@ -26,7 +26,7 @@ public class Console {
         String[] userCommand = {"", ""};
         try {
             do {
-                System.out.print("\n$ ");
+                System.out.print("$ ");
                 userCommand = (userScanner.nextLine().trim() + " ").split(" ", 2);
                 userCommand[1] = userCommand[1].trim();
                 commandManager.addToHistory(userCommand[0]);
@@ -53,7 +53,7 @@ public class Console {
             do {
                 userCommand = (scriptScanner.nextLine().trim() + " ").split(" ", 2);
                 userCommand[1] = userCommand[1].trim();
-                System.out.println("\n>>> " + String.join(" ", userCommand));
+                System.out.println("$ " + String.join(" ", userCommand));
             } while (launchCommand(userCommand) && scriptScanner.hasNextLine());
             marineAsker.setUserScanner(tmpScanner);
             marineAsker.setUserMode();

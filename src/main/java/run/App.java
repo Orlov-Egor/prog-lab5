@@ -31,7 +31,6 @@ import utility.MarineAsker;
 // TODO: Исправить реакцию на пустые строки в скрипте
 // TODO: Обрабатывать execute_script внутри скрипта
 // TODO: Запрашивать каждое значение в отдельную строку
-// TODO: Попробовать изменить PS1
 
 /**
  * Main application class. Creates all instances and runs the program.

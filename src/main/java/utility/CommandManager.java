@@ -53,7 +53,7 @@ public class CommandManager {
         this.maxByMeleeWeaponCommand = maxByMeleeWeaponCommand;
         this.filterByWeaponTypeCommand = filterByWeaponTypeCommand;
 
-        commands.add(helpCommand);
+        // commands.add(helpCommand);
         commands.add(infoCommand);
         commands.add(showCommand);
         commands.add(addCommand);
