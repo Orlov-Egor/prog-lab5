@@ -1,5 +1,7 @@
 package commands;
 
+import utility.Console;
+
 /**
  * Command 'help'. It's here just for logical structure.
  */
@@ -14,6 +16,6 @@ public class HelpCommand extends AbstractCommand {
      */
     @Override
     public void execute(String argument) {
-        System.out.println("Вы нашли пасхалку! Программирование - это здорово!");
+        Console.println("Вы нашли пасхалку! Программирование - это здорово!");
     }
 }

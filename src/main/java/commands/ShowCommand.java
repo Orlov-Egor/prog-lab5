@@ -2,6 +2,7 @@ package commands;
 
 import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
+import utility.Console;
 
 /**
  * Command 'show'. Shows information about all elements of the collection.
@@ -21,9 +22,9 @@ public class ShowCommand extends AbstractCommand {
     public void execute(String argument) {
         try {
             if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
-            System.out.println(collectionManager);
+            Console.println(collectionManager);
         } catch (WrongAmountOfElementsException exception) {
-            System.out.println(" Использование: '" + getName() + "'");
+            Console.println("Использование: '" + getName() + "'");
         }
     }
 }

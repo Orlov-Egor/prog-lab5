@@ -2,6 +2,7 @@ package commands;
 
 import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
+import utility.Console;
 
 /**
  * Command 'save'. Saves the collection to a file.
@@ -23,7 +24,7 @@ public class SaveCommand extends AbstractCommand {
             if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
             collectionManager.saveCollection();
         } catch (WrongAmountOfElementsException exception) {
-            System.out.println(" Использование: '" + getName() + "'");
+            Console.println("Использование: '" + getName() + "'");
         }
     }
 }

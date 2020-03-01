@@ -25,18 +25,21 @@ import utility.FileManager;
 import utility.MarineAsker;
 
 // TODO: RemoveGreater - повторы (?)
-// TODO: Заменить возвращаемые объекты на клоны (?)
-// TODO: Реализовать нормальный exit в скрипте (?)
+// TODO: Заменить возвращаемые объекты на клоны
 // TODO: Перекостылить завершение скрипта при падении add, ...
 // TODO: Исправить реакцию на пустые строки в скрипте
 // TODO: Обрабатывать execute_script внутри скрипта
-// TODO: Запрашивать каждое значение в отдельную строку
+// TODO: Поиграть со знаками '!', ':', '.' и т. д.
+// TODO: Дописать javadoc
 
 /**
  * Main application class. Creates all instances and runs the program.
  * @author Sviridov Dmitry and Orlov Egor
  */
 public class App {
+    public static final String PS1 = "$ ";
+    public static final String PS2 = "> ";
+
     public static void main(String[] args) {
         try (Scanner userScanner = new Scanner(System.in)) {
             final String envVariable = "LABA";

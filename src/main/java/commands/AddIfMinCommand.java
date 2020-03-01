@@ -6,6 +6,7 @@ import data.SpaceMarine;
 import exceptions.IncorrectInputInScriptException;
 import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
+import utility.Console;
 import utility.MarineAsker;
 
 /**
@@ -41,12 +42,12 @@ public class AddIfMinCommand extends AbstractCommand {
             );
             if (collectionManager.collectionSize() == 0 || marineToAdd.compareTo(collectionManager.getFirst()) < 0) {
                 collectionManager.addToCollection(marineToAdd);
-                System.out.println("Солдат успешно добавлен!");
-            } else System.out.println("Значение солдата больше, чем значение наименьшего из солдат!");
+                Console.println("Солдат успешно добавлен!");
+            } else Console.printerror("Значение солдата больше, чем значение наименьшего из солдат!");
         } catch (WrongAmountOfElementsException exception) {
-            System.out.println(" Использование: '" + getName() + "'");
+            Console.println("Использование: '" + getName() + "'");
         } catch (IncorrectInputInScriptException exception) {
-            System.out.println(" Проверьте скрипт на корректность введенных данных!");
+            Console.println("Проверьте скрипт на корректность введенных данных!");
         }
     }
 }

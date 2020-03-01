@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
+import run.App;
+
 /**
  * Operates command input.
  */
@@ -26,7 +28,7 @@ public class Console {
         String[] userCommand = {"", ""};
         try {
             do {
-                System.out.print("$ ");
+                System.out.print(App.PS1);
                 userCommand = (userScanner.nextLine().trim() + " ").split(" ", 2);
                 userCommand[1] = userCommand[1].trim();
                 commandManager.addToHistory(userCommand[0]);
@@ -53,7 +55,7 @@ public class Console {
             do {
                 userCommand = (scriptScanner.nextLine().trim() + " ").split(" ", 2);
                 userCommand[1] = userCommand[1].trim();
-                System.out.println("$ " + String.join(" ", userCommand));
+                System.out.println(App.PS1 + String.join(" ", userCommand));
             } while (launchCommand(userCommand) && scriptScanner.hasNextLine());
             marineAsker.setUserScanner(tmpScanner);
             marineAsker.setUserMode();
@@ -129,6 +131,18 @@ public class Console {
                 commandManager.noSuchCommand(userCommand[0]);
         }
         return true;
+    }
+
+    public static void print(Object toOut) {
+        System.out.print(toOut);
+    }
+
+    public static void println(Object toOut) {
+        System.out.println(toOut);
+    }
+
+    public static void printerror(Object toOut) {
+        System.out.println("error: " + toOut);
     }
 
     @Override

@@ -3,6 +3,7 @@ package commands;
 import data.Weapon;
 import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
+import utility.Console;
 
 /**
  * Command 'filter_by_weapon_type'. Filters the collection by weapon type.
@@ -23,12 +24,12 @@ public class FilterByWeaponTypeCommand extends AbstractCommand {
         try {
             if (argument.isEmpty()) throw new WrongAmountOfElementsException();
             Weapon weapon = Weapon.valueOf(argument.toUpperCase());
-            System.out.println(collectionManager.weaponFilteredInfo(weapon));
+            Console.println(collectionManager.weaponFilteredInfo(weapon));
         } catch (WrongAmountOfElementsException exception) {
-            System.out.println(" Использование: '" + getName() + "'");
+            Console.println("Использование: '" + getName() + "'");
         } catch (IllegalArgumentException exception) {
-            System.out.println(" Оружия нет в списке!");
-            System.out.println(" Список оружия дальнего боя - " + Weapon.nameList());
+            Console.printerror("Оружия нет в списке!");
+            Console.println("Список оружия дальнего боя - " + Weapon.nameList());
         }
     }
 }

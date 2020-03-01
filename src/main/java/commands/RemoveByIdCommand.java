@@ -5,6 +5,7 @@ import exceptions.MarineNotFoundException;
 import exceptions.WrongAmountOfElementsException;
 import exceptions.CollectionIsEmptyException;
 import utility.CollectionManager;
+import utility.Console;
 
 /**
  * Command 'remove_by_id'. Removes the element by its ID.
@@ -29,15 +30,15 @@ public class RemoveByIdCommand extends AbstractCommand {
             SpaceMarine marineToRemove = collectionManager.getById(id);
             if (marineToRemove == null) throw new MarineNotFoundException();
             collectionManager.removeFromCollection(marineToRemove);
-            System.out.println("Солдат успешно удален!");
+            Console.println("Солдат успешно удален!");
         } catch (WrongAmountOfElementsException exception) {
-            System.out.println(" Использование: '" + getName() + "'");
+            Console.println("Использование: '" + getName() + "'");
         } catch (CollectionIsEmptyException exception) {
-            System.out.println("Коллекция пуста!");
+            Console.printerror("Коллекция пуста!");
         } catch (NumberFormatException exception) {
-            System.out.println("ID должен быть представлен числом!");
+            Console.printerror("ID должен быть представлен числом!");
         } catch (MarineNotFoundException exception) {
-            System.out.println("Солдата с таким ID в коллекции нет!");
+            Console.printerror("Солдата с таким ID в коллекции нет!");
         }
     }
 }

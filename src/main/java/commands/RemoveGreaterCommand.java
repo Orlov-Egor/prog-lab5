@@ -8,6 +8,7 @@ import exceptions.IncorrectInputInScriptException;
 import exceptions.MarineNotFoundException;
 import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
+import utility.Console;
 import utility.MarineAsker;
 
 /**
@@ -45,15 +46,15 @@ public class RemoveGreaterCommand extends AbstractCommand {
             SpaceMarine marineFromCollection = collectionManager.getByValue(marineToFind);
             if (marineFromCollection == null) throw new MarineNotFoundException();
             collectionManager.removeGreater(marineFromCollection);
-            System.out.println("Солдаты успешно удалены!");
+            Console.println("Солдаты успешно удалены!");
         } catch (WrongAmountOfElementsException exception) {
-            System.out.println(" Использование: '" + getName() + "'");
+            Console.println("Использование: '" + getName() + "'");
         } catch (CollectionIsEmptyException exception) {
-            System.out.println("Коллекция пуста!");
+            Console.printerror("Коллекция пуста!");
         } catch (MarineNotFoundException exception) {
-            System.out.println("Солдата с такими характеристиками в коллекции нет!");
+            Console.printerror("Солдата с такими характеристиками в коллекции нет!");
         } catch (IncorrectInputInScriptException exception) {
-            System.out.println(" Проверьте скрипт на корректность введенных данных!");
+            Console.println("Проверьте скрипт на корректность введенных данных!");
         }
     }
 }

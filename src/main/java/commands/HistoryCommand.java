@@ -1,5 +1,7 @@
 package commands;
 
+import utility.Console;
+
 /**
  * Command 'history'. It's here just for logical structure.
  */
@@ -14,6 +16,6 @@ public class HistoryCommand extends AbstractCommand {
      */
     @Override
     public void execute(String argument) {
-        System.out.println("Вы нашли пасхалку! ИТМО - это чудо!");
+        Console.println("Вы нашли пасхалку! ИТМО - это чудо!");
     }
 }

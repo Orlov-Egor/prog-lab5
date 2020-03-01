@@ -12,6 +12,7 @@ import exceptions.IncorrectInputInScriptException;
 import exceptions.MustBeNotEmptyException;
 import exceptions.NotInDeclaredLimitsException;
 import exceptions.WrongAmountOfElementsException;
+import run.App;
 
 /**
  * Asks a user a marine's value.
@@ -19,7 +20,8 @@ import exceptions.WrongAmountOfElementsException;
 public class MarineAsker {
     private final int MAX_Y = 262;
     private final double MIN_HEALTH = 0;
-    final int MAX_MARINES = 1000;
+    private final long MIN_MARINES = 1;
+    private final long MAX_MARINES = 1000;
 
     private Scanner userScanner;
     private boolean fileMode;
@@ -66,23 +68,78 @@ public class MarineAsker {
         String name;
         while (true) {
             try {
-                System.out.print("Введите имя: ");
+                Console.println("Введите имя:");
+                Console.print(App.PS2);
                 name = userScanner.nextLine().trim();
-                if (fileMode) System.out.println(name);
+                if (fileMode) Console.println(name);
                 if (name.equals("")) throw new MustBeNotEmptyException();
                 break;
             } catch (NoSuchElementException exception) {
-                System.out.println(" Имя не распознано!");
+                Console.printerror("Имя не распознано!");
                 if (fileMode) throw new IncorrectInputInScriptException();
             } catch (MustBeNotEmptyException exception) {
-                System.out.println(" Имя не может быть пустым!");
+                Console.printerror("Имя не может быть пустым!");
                 if (fileMode) throw new IncorrectInputInScriptException();
             } catch (IllegalStateException exception) {
-                System.out.println(" Непредвиденная ошибка!");
+                Console.printerror("Непредвиденная ошибка!");
                 System.exit(0);
             }
         }
         return name;
+    }
+
+    public double askX() throws IncorrectInputInScriptException {
+        String strX;
+        double x;
+        while (true) {
+            try {
+                Console.println("Введите координату X:");
+                Console.print(App.PS2);
+                strX = userScanner.nextLine().trim();
+                if (fileMode) Console.println(strX);
+                x = Double.parseDouble(strX);
+                break;
+            } catch (NoSuchElementException exception) {
+                Console.printerror("Координата X не распознана!");
+                if (fileMode) throw new IncorrectInputInScriptException();
+            } catch (NumberFormatException exception) {
+                Console.printerror("Координата X должна быть представлена числом!");
+                if (fileMode) throw new IncorrectInputInScriptException();
+            } catch (NullPointerException | IllegalStateException exception) {
+                Console.printerror("Непредвиденная ошибка!");
+                System.exit(0);
+            }
+        }
+        return x;
+    }
+
+    public Float askY() throws IncorrectInputInScriptException {
+        String strY;
+        Float y;
+        while (true) {
+            try {
+                Console.println("Введите координату Y < " + (MAX_Y+1) + ":");
+                Console.print(App.PS2);
+                strY = userScanner.nextLine().trim();
+                if (fileMode) Console.println(strY);
+                y = Float.parseFloat(strY);
+                if (y > MAX_Y) throw new NotInDeclaredLimitsException();
+                break;
+            } catch (NoSuchElementException exception) {
+                Console.printerror("Координата Y не распознана!");
+                if (fileMode) throw new IncorrectInputInScriptException();
+            } catch (NotInDeclaredLimitsException exception) {
+                Console.printerror("Координата Y не может превышать " + MAX_Y + "!");
+                if (fileMode) throw new IncorrectInputInScriptException();
+            } catch (NumberFormatException exception) {
+                Console.printerror("Координата Y должна быть представлена числом!");
+                if (fileMode) throw new IncorrectInputInScriptException();
+            } catch (NullPointerException | IllegalStateException exception) {
+                Console.printerror("Непредвиденная ошибка!");
+                System.exit(0);
+            }
+        }
+        return y;
     }
 
     /**
@@ -90,37 +147,10 @@ public class MarineAsker {
      * @return Marine's coordinates.
      */
     public Coordinates askCoordinates() throws IncorrectInputInScriptException {
-        String[] strCoordArray;
         double x;
         Float y;
-        while (true) {
-            try {
-                System.out.println(" Формат ввода местоположения - 'X Y', где Y < " + (MAX_Y+1));
-                System.out.print("Введите местоположение: ");
-                strCoordArray = userScanner.nextLine().trim().split(" ");
-                if (fileMode) System.out.println(String.join(" ", strCoordArray));
-                if (strCoordArray.length != 2) throw new WrongAmountOfElementsException();
-                x = Double.parseDouble(strCoordArray[0]);
-                y = Float.parseFloat(strCoordArray[1]);
-                if (y > MAX_Y) throw new NotInDeclaredLimitsException();
-                break;
-            } catch (NoSuchElementException exception) {
-                System.out.println(" Координаты не распознаны!");
-                if (fileMode) throw new IncorrectInputInScriptException();
-            } catch (NotInDeclaredLimitsException exception) {
-                System.out.println(" Координата Y не может превышать " + MAX_Y + "!");
-                if (fileMode) throw new IncorrectInputInScriptException();
-            } catch (WrongAmountOfElementsException exception) {
-                System.out.println(" Неверное количество координат!");
-                if (fileMode) throw new IncorrectInputInScriptException();
-            } catch (NumberFormatException exception) {
-                System.out.println(" Координаты должны быть представлены числами!");
-                if (fileMode) throw new IncorrectInputInScriptException();
-            } catch (NullPointerException | IllegalStateException exception) {
-                System.out.println(" Непредвиденная ошибка!");
-                System.exit(0);
-            }
-        }
+        x = askX();
+        y = askY();
         return new Coordinates(x, y);
     }
 
@@ -133,23 +163,24 @@ public class MarineAsker {
         double health;
         while (true) {
             try {
-                System.out.print("Введите здоровье: ");
+                Console.println("Введите здоровье:");
+                Console.print(App.PS2);
                 strHealth = userScanner.nextLine().trim();
-                if (fileMode) System.out.println(strHealth);
+                if (fileMode) Console.println(strHealth);
                 health = Double.parseDouble(strHealth);
                 if (health < MIN_HEALTH) throw new NotInDeclaredLimitsException();
                 break;
             } catch (NoSuchElementException exception) {
-                System.out.println(" Здоровье не распознано!");
+                Console.printerror("Здоровье не распознано!");
                 if (fileMode) throw new IncorrectInputInScriptException();
             } catch (NotInDeclaredLimitsException exception) {
-                System.out.println(" Здоровье должно быть больше нуля!");
+                Console.printerror("Здоровье должно быть больше нуля!");
                 if (fileMode) throw new IncorrectInputInScriptException();
             } catch (NumberFormatException exception) {
-                System.out.println(" Здоровье должно быть представлено числом!");
+                Console.printerror("Здоровье должно быть представлено числом!");
                 if (fileMode) throw new IncorrectInputInScriptException();
             } catch (NullPointerException | IllegalStateException exception) {
-                System.out.println(" Непредвиденная ошибка!");
+                Console.printerror("Непредвиденная ошибка!");
                 System.exit(0);
             }
         }
@@ -164,19 +195,20 @@ public class MarineAsker {
         AstartesCategory category;
         while (true) {
             try {
-                System.out.println(" Список категорий - " + AstartesCategory.nameList());
-                System.out.print("Введите категорию: ");
+                Console.println("Список категорий - " + AstartesCategory.nameList());
+                Console.println("Введите категорию:");
+                Console.print(App.PS2);
                 category = AstartesCategory.valueOf(userScanner.nextLine().trim().toUpperCase());
-                if (fileMode) System.out.println(category);
+                if (fileMode) Console.println(category);
                 break;
             } catch (NoSuchElementException exception) {
-                System.out.println(" Категория не распознана!");
+                Console.printerror("Категория не распознана!");
                 if (fileMode) throw new IncorrectInputInScriptException();
             } catch (IllegalArgumentException exception) {
-                System.out.println(" Категории нет в списке!");
+                Console.printerror("Категории нет в списке!");
                 if (fileMode) throw new IncorrectInputInScriptException();
             } catch (IllegalStateException exception) {
-                System.out.println(" Непредвиденная ошибка!");
+                Console.printerror("Непредвиденная ошибка!");
                 System.exit(0);
             }
         }
@@ -191,19 +223,20 @@ public class MarineAsker {
         Weapon weaponType;
         while (true) {
             try {
-                System.out.println(" Список оружия дальнего боя - " + Weapon.nameList());
-                System.out.print("Введите оружие дальнего боя: ");
+                Console.println("Список оружия дальнего боя - " + Weapon.nameList());
+                Console.println("Введите оружие дальнего боя:");
+                Console.print(App.PS2);
                 weaponType = Weapon.valueOf(userScanner.nextLine().trim().toUpperCase());
-                if (fileMode) System.out.println(weaponType);
+                if (fileMode) Console.println(weaponType);
                 break;
             } catch (NoSuchElementException exception) {
-                System.out.println(" Оружие не распознано!");
+                Console.printerror("Оружие не распознано!");
                 if (fileMode) throw new IncorrectInputInScriptException();
             } catch (IllegalArgumentException exception) {
-                System.out.println(" Оружия нет в списке!");
+                Console.printerror("Оружия нет в списке!");
                 if (fileMode) throw new IncorrectInputInScriptException();
             } catch (IllegalStateException exception) {
-                System.out.println(" Непредвиденная ошибка!");
+                Console.printerror("Непредвиденная ошибка!");
                 System.exit(0);
             }
         }
@@ -218,23 +251,77 @@ public class MarineAsker {
         MeleeWeapon meleeWeapon;
         while (true) {
             try {
-                System.out.println(" Список оружия ближнего боя - " + MeleeWeapon.nameList());
-                System.out.print("Введите оружие ближнего боя: ");
+                Console.println("Список оружия ближнего боя - " + MeleeWeapon.nameList());
+                Console.println("Введите оружие ближнего боя:");
+                Console.print(App.PS2);
                 meleeWeapon = MeleeWeapon.valueOf(userScanner.nextLine().trim().toUpperCase());
-                if (fileMode) System.out.println(meleeWeapon);
+                if (fileMode) Console.println(meleeWeapon);
                 break;
             } catch (NoSuchElementException exception) {
-                System.out.println(" Оружие не распознано!");
+                Console.printerror("Оружие не распознано!");
                 if (fileMode) throw new IncorrectInputInScriptException();
             } catch (IllegalArgumentException exception) {
-                System.out.println(" Оружия нет в списке!");
+                Console.printerror("Оружия нет в списке!");
                 if (fileMode) throw new IncorrectInputInScriptException();
             } catch (IllegalStateException exception) {
-                System.out.println(" Непредвиденная ошибка!");
+                Console.printerror("Непредвиденная ошибка!");
                 System.exit(0);
             }
         }
         return meleeWeapon;
+    }
+
+    public String askChapterName() throws IncorrectInputInScriptException {
+        String chapterName;
+        while (true) {
+            try {
+                Console.println("Введите имя ордена:");
+                Console.print(App.PS2);
+                chapterName = userScanner.nextLine().trim();
+                if (fileMode) Console.println(chapterName);
+                if (chapterName.equals("")) throw new MustBeNotEmptyException();
+                break;
+            } catch (NoSuchElementException exception) {
+                Console.printerror("Имя ордена не распознано!");
+                if (fileMode) throw new IncorrectInputInScriptException();
+            } catch (MustBeNotEmptyException exception) {
+                Console.printerror("Имя ордена не может быть пустым!");
+                if (fileMode) throw new IncorrectInputInScriptException();
+            } catch (IllegalStateException exception) {
+                Console.printerror("Непредвиденная ошибка!");
+                System.exit(0);
+            }
+        }
+        return chapterName;
+    }
+
+    public long askChapterMarinesCount() throws IncorrectInputInScriptException {
+        String strMarinesCount;
+        long marinesCount;
+        while (true) {
+            try {
+                Console.println("Введите количество солдат в ордене < " + (MAX_MARINES+1) + ":");
+                Console.print(App.PS2);
+                strMarinesCount = userScanner.nextLine().trim();
+                if (fileMode) Console.println(strMarinesCount);
+                marinesCount = Long.parseLong(strMarinesCount);
+                if (marinesCount < MIN_MARINES || marinesCount > MAX_MARINES) throw new NotInDeclaredLimitsException();
+                break;
+            } catch (NoSuchElementException exception) {
+                Console.printerror("Количество солдат в ордене не распознано!");
+                if (fileMode) throw new IncorrectInputInScriptException();
+            } catch (NotInDeclaredLimitsException exception) {
+                Console.printerror("Количество солдат в ордене должно быть положительным и не превышать " + MAX_MARINES + "!");
+                if (fileMode) throw new IncorrectInputInScriptException();
+            } catch (NumberFormatException exception) {
+                Console.printerror("Количество солдат в ордене должно быть представлено числом!");
+                if (fileMode) throw new IncorrectInputInScriptException();
+            } catch (NullPointerException | IllegalStateException exception) {
+                Console.printerror("Непредвиденная ошибка!");
+                System.exit(0);
+            }
+        }
+        return marinesCount;
     }
 
     /**
@@ -242,37 +329,10 @@ public class MarineAsker {
      * @return Marine's chapter.
      */
     public Chapter askChapter() throws IncorrectInputInScriptException {
-        String[] strChapterArray;
         String name;
         long marinesCount;
-        while (true) {
-            try {
-                System.out.println(" Формат ввода ордена - 'NAME MARINES', где MARINES < " + (MAX_MARINES+1));
-                System.out.print("Введите орден: ");
-                strChapterArray = userScanner.nextLine().trim().split(" ");
-                if (fileMode) System.out.println(String.join(" ", strChapterArray));
-                if (strChapterArray.length != 2) throw new WrongAmountOfElementsException();
-                name = strChapterArray[0];
-                marinesCount = Long.parseLong(strChapterArray[1]);
-                if (marinesCount > MAX_MARINES || marinesCount < 1) throw new NotInDeclaredLimitsException();
-                break;
-            } catch (NoSuchElementException exception) {
-                System.out.println(" Орден не распознан!");
-                if (fileMode) throw new IncorrectInputInScriptException();
-            } catch (NotInDeclaredLimitsException exception) {
-                System.out.println(" Количество солдат в ордене должно быть положительным и не превышать " + MAX_MARINES + "!");
-                if (fileMode) throw new IncorrectInputInScriptException();
-            } catch (WrongAmountOfElementsException exception) {
-                System.out.println(" Неверное количество характеристик ордена!");
-                if (fileMode) throw new IncorrectInputInScriptException();
-            } catch (NumberFormatException exception) {
-                System.out.println(" Количество солдат в ордене должно быть представлено числом!");
-                if (fileMode) throw new IncorrectInputInScriptException();
-            } catch (NullPointerException | IllegalStateException exception) {
-                System.out.println(" Непредвиденная ошибка!");
-                System.exit(0);
-            }
-        }
+        name = askChapterName();
+        marinesCount = askChapterMarinesCount();
         return new Chapter(name, marinesCount);
     }
 
@@ -282,23 +342,24 @@ public class MarineAsker {
      * @param question A question.
      */
     public boolean askQuestion(String question) throws IncorrectInputInScriptException {
-        String finalQuestion = question + " (+/-): ";
+        String finalQuestion = question + " (+/-):";
         String answer;
         while (true) {
             try {
-                System.out.print(finalQuestion);
+                Console.println(finalQuestion);
+                Console.print(App.PS2);
                 answer = userScanner.nextLine().trim();
-                if (fileMode) System.out.println(answer);
+                if (fileMode) Console.println(answer);
                 if (!answer.equals("+") && !answer.equals("-")) throw new NotInDeclaredLimitsException();
                 break;
             } catch (NoSuchElementException exception) {
-                System.out.println(" Ответ не распознан!");
+                Console.printerror("Ответ не распознан!");
                 if (fileMode) throw new IncorrectInputInScriptException();
             } catch (NotInDeclaredLimitsException exception) {
-                System.out.println(" Ответ должен быть представлен знаками '+' или '-'!");
+                Console.printerror("Ответ должен быть представлен знаками '+' или '-'!");
                 if (fileMode) throw new IncorrectInputInScriptException();
             } catch (IllegalStateException exception) {
-                System.out.println(" Непредвиденная ошибка!");
+                Console.printerror("Непредвиденная ошибка!");
                 System.exit(0);
             }
         }

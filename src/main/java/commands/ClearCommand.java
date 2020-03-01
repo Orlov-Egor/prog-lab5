@@ -2,6 +2,7 @@ package commands;
 
 import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
+import utility.Console;
 
 /**
  * Command 'clear'. Clears the collection.
@@ -22,9 +23,9 @@ public class ClearCommand extends AbstractCommand {
         try {
             if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
             collectionManager.clearCollection();
-            System.out.println("Коллекция очищена!");
+            Console.println("Коллекция очищена!");
         } catch (WrongAmountOfElementsException exception) {
-            System.out.println(" Использование: '" + getName() + "'");
+            Console.println("Использование: '" + getName() + "'");
         }
     }
 }

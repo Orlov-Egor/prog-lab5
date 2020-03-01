@@ -13,6 +13,7 @@ import exceptions.IncorrectInputInScriptException;
 import exceptions.MarineNotFoundException;
 import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
+import utility.Console;
 import utility.MarineAsker;
 
 /**
@@ -71,17 +72,17 @@ public class UpdateCommand extends AbstractCommand {
                 meleeWeapon,
                 chapter
             ));
-            System.out.println("Солдат успешно изменен!");
+            Console.println("Солдат успешно изменен!");
         } catch (WrongAmountOfElementsException exception) {
-            System.out.println(" Использование: '" + getName() + "'");
+            Console.println("Использование: '" + getName() + "'");
         } catch (CollectionIsEmptyException exception) {
-            System.out.println("Коллекция пуста!");
+            Console.printerror("Коллекция пуста!");
         } catch (NumberFormatException exception) {
-            System.out.println("ID должен быть представлен числом!");
+            Console.printerror("ID должен быть представлен числом!");
         } catch (MarineNotFoundException exception) {
-            System.out.println("Солдата с таким ID в коллекции нет!");
+            Console.printerror("Солдата с таким ID в коллекции нет!");
         } catch (IncorrectInputInScriptException exception) {
-            System.out.println(" Проверьте скрипт на корректность введенных данных!");
+            Console.println("Проверьте скрипт на корректность введенных данных!");
         }
     }
 }

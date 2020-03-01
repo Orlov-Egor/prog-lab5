@@ -1,6 +1,7 @@
 package commands;
 
 import exceptions.WrongAmountOfElementsException;
+import utility.Console;
 
 /**
  * Command 'execute_script'. Executes scripts from a file.
@@ -18,9 +19,9 @@ public class ExecuteScriptCommand extends AbstractCommand {
     public void execute(String argument) {
         try {
             if (argument.isEmpty()) throw new WrongAmountOfElementsException();
-            System.out.println("Выполняю скрипт '" + argument + "'...");
+            Console.println("Выполняю скрипт '" + argument + "'...");
         } catch (WrongAmountOfElementsException exception) {
-            System.out.println(" Использование: '" + getName() + "'");
+            Console.println("Использование: '" + getName() + "'");
         }
     }
 }

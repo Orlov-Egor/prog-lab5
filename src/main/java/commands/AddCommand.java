@@ -6,6 +6,7 @@ import data.SpaceMarine;
 import exceptions.IncorrectInputInScriptException;
 import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
+import utility.Console;
 import utility.MarineAsker;
 
 /**
@@ -39,11 +40,11 @@ public class AddCommand extends AbstractCommand {
                 marineAsker.askMeleeWeapon(),
                 marineAsker.askChapter()
             ));
-            System.out.println("Солдат успешно добавлен!");
+            Console.println("Солдат успешно добавлен!");
         } catch (WrongAmountOfElementsException exception) {
-            System.out.println(" Использование: '" + getName() + "'");
+            Console.println("Использование: '" + getName() + "'");
         } catch (IncorrectInputInScriptException exception) {
-            System.out.println(" Проверьте скрипт на корректность введенных данных!");
+            Console.println("Проверьте скрипт на корректность введенных данных!");
         }
     }
 }

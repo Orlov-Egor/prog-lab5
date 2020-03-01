@@ -1,6 +1,7 @@
 package commands;
 
 import exceptions.WrongAmountOfElementsException;
+import utility.Console;
 
 /**
  * Command 'exit'. Checks for wrong arguments then do nothing.
@@ -19,7 +20,7 @@ public class ExitCommand extends AbstractCommand {
         try {
             if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
         } catch (WrongAmountOfElementsException exception) {
-            System.out.println(" Использование: '" + getName() + "'");
+            Console.println("Использование: '" + getName() + "'");
         }
     }
 }

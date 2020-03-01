@@ -2,6 +2,7 @@ package commands;
 
 import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
+import utility.Console;
 
 /**
  * Command 'max_by_melee_weapon'. Prints the element of the collection with maximum melee weapon.
@@ -21,9 +22,9 @@ public class MaxByMeleeWeaponCommand extends AbstractCommand {
     public void execute(String argument) {
         try {
             if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
-            System.out.println(collectionManager.maxByMeleeWeapon());
+            Console.println(collectionManager.maxByMeleeWeapon());
         } catch (WrongAmountOfElementsException exception) {
-            System.out.println(" Использование: '" + getName() + "'");
+            Console.println("Использование: '" + getName() + "'");
         }
     }
 }
