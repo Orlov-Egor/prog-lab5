@@ -26,7 +26,7 @@ public class Console {
         String[] userCommand = {"", ""};
         try {
             do {
-                System.out.print("\n>>> ");
+                System.out.print("\n$ ");
                 userCommand = (userScanner.nextLine().trim() + " ").split(" ", 2);
                 userCommand[1] = userCommand[1].trim();
                 commandManager.addToHistory(userCommand[0]);
